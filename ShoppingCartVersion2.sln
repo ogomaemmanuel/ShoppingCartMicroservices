@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCartVersion2", "ShoppingCartVersion2\ShoppingCartVersion2.csproj", "{7D76A5AC-8B13-4EB7-B239-D0F099222906}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0723E44E-9D5A-45C7-B8E1-75805FA6F2DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D76A5AC-8B13-4EB7-B239-D0F099222906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D76A5AC-8B13-4EB7-B239-D0F099222906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D76A5AC-8B13-4EB7-B239-D0F099222906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D76A5AC-8B13-4EB7-B239-D0F099222906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0723E44E-9D5A-45C7-B8E1-75805FA6F2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0723E44E-9D5A-45C7-B8E1-75805FA6F2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0723E44E-9D5A-45C7-B8E1-75805FA6F2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0723E44E-9D5A-45C7-B8E1-75805FA6F2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A69C2568-2322-4625-A660-02BB441D5B5E}
+	EndGlobalSection
+EndGlobal

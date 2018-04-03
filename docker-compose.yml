@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  shoppingcartversion2:
+    image: shoppingcartversion2
+    build:
+      context: .
+      dockerfile: ShoppingCartVersion2/Dockerfile
