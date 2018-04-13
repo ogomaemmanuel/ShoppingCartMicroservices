@@ -1,0 +1,10 @@
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\bin\Debug\netcoreapp2.0\ManufacturerService.deps.json
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\bin\Debug\netcoreapp2.0\ManufacturerService.runtimeconfig.json
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\bin\Debug\netcoreapp2.0\ManufacturerService.runtimeconfig.dev.json
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\bin\Debug\netcoreapp2.0\ManufacturerService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\bin\Debug\netcoreapp2.0\ManufacturerService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debug\netcoreapp2.0\ManufacturerService.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debug\netcoreapp2.0\ManufacturerService.AssemblyInfoInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debug\netcoreapp2.0\ManufacturerService.AssemblyInfo.cs
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debug\netcoreapp2.0\ManufacturerService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debug\netcoreapp2.0\ManufacturerService.pdb

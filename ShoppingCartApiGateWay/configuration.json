@@ -1,0 +1,150 @@
+﻿{
+  "ReRoutes": [
+
+    //products reroutes settings
+    {
+      "DownstreamPathTemplate": "/api/products/all",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9006
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products/all",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/products/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9006
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products/{id}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9006
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+
+    // orders reroutes config
+    {
+      "DownstreamPathTemplate": "/api/orders",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9006
+        }
+      ],
+      "UpstreamPathTemplate": "/api/orders",
+      "UpstreamHttpMethod": [ "Post", "Get" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/orders/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9006
+        }
+      ],
+      "UpstreamPathTemplate": "/api/orders/{id}",
+      "UpstreamHttpMethod": [ "Get", "Delete", "Put" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/orders/customer/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9006
+        }
+      ],
+      "UpstreamPathTemplate": "/api/orders/customer/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/orders/order-items/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9006
+        }
+      ],
+      "UpstreamPathTemplate": "/api/orders/order-items/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+
+    //shipment methods reroutes config
+    {
+      "DownstreamPathTemplate": "/api/ShipmentMethods",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9007
+        }
+      ],
+      "UpstreamPathTemplate": "api/ShipmentMethods",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ShipmentMethods/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9007
+        }
+      ],
+      "UpstreamPathTemplate": "api/ShipmentMethods/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    },
+
+    //payment methods reroute config
+
+    {
+      "DownstreamPathTemplate": "/api/PaymentMethods",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9007
+        }
+      ],
+      "UpstreamPathTemplate": "api/PaymentMethods",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/PaymentMethods/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9007
+        }
+      ],
+      "UpstreamPathTemplate": "api/PaymentMethods/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    }
+  ],
+  "GlobalConfiguration": {}
+}
