@@ -1,20 +1,41 @@
-FROM microsoft/aspnetcore:2.0 AS base
-WORKDIR /app
-EXPOSE 80
+#FROM microsoft/aspnetcore:2.0 AS base
+#WORKDIR /app
+#EXPOSE 80
+#
+#FROM microsoft/aspnetcore-build:2.0 AS build
+#WORKDIR /src
+#COPY *.sln ./
+#COPY BasketService/BasketService.csproj BasketService/
+#RUN dotnet restore
+#COPY . .
+#WORKDIR /src/BasketService
+#RUN dotnet build -c Release -o /app
+#
+#FROM build AS publish
+#RUN dotnet publish -c Release -o /app
+#
+#FROM base AS final
+#WORKDIR /app
+#COPY --from=publish /app .
+#ENTRYPOINT ["dotnet", "BasketService.dll"]
 
-FROM microsoft/aspnetcore-build:2.0 AS build
-WORKDIR /src
-COPY *.sln ./
-COPY BasketService/BasketService.csproj BasketService/
+
+
+
+FROM microsoft/aspnetcore-build:2.0 AS build-env
+WORKDIR /app
+
+
+# copy csproj and restore as distinct layers
+COPY *.csproj ./
 RUN dotnet restore
-COPY . .
-WORKDIR /src/BasketService
-RUN dotnet build -c Release -o /app
 
-FROM build AS publish
-RUN dotnet publish -c Release -o /app
+# copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
 
-FROM base AS final
+# build runtime image
+FROM microsoft/aspnetcore:2.0
 WORKDIR /app
-COPY --from=publish /app .
+COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "BasketService.dll"]

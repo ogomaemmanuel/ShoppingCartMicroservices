@@ -1,0 +1,74 @@
+services:
+  basketservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
+      dockerfile: BasketService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: basketservice
+    ports:
+    - 80/tcp
+  manufacturerservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
+      dockerfile: ManufacturerService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: manufacturerservice
+    ports:
+    - 80/tcp
+  orderservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
+      dockerfile: OrderService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: orderservice
+    ports:
+    - 80/tcp
+  paymentmethodservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
+      dockerfile: PaymentMethodService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: paymentmethodservice
+    ports:
+    - 80/tcp
+  productcategoryservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
+      dockerfile: ProductCategoryService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: productcategoryservice
+    ports:
+    - 80/tcp
+  productservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
+      dockerfile: ProductService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: productservice
+    ports:
+    - 80/tcp
+  shipmentmethodservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
+      dockerfile: ShipmentMethodService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: shipmentmethodservice
+    ports:
+    - 80/tcp
+  shoppingcartapigateway:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
+      dockerfile: ShoppingCartApiGateWay/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: shoppingcartapigateway
+    ports:
+    - 80/tcp
+version: '3.0'
