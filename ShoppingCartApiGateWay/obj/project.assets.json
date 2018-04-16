@@ -199,6 +199,29 @@
           "lib/netstandard1.0/FluentValidation.dll": {}
         }
       },
+      "Flurl/2.7.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Flurl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Flurl.dll": {}
+        }
+      },
+      "Flurl.Http/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Flurl": "2.7.1",
+          "Newtonsoft.Json": "11.0.1",
+          "System.Text.Encoding.CodePages": "4.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Flurl.Http.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Flurl.Http.dll": {}
+        }
+      },
       "IdentityModel/2.13.0": {
         "type": "package",
         "dependencies": {
@@ -2983,21 +3006,13 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/10.0.3": {
+      "Newtonsoft.Json/11.0.1": {
         "type": "package",
-        "dependencies": {
-          "Microsoft.CSharp": "4.3.0",
-          "NETStandard.Library": "1.6.1",
-          "System.ComponentModel.TypeConverter": "4.3.0",
-          "System.Runtime.Serialization.Formatters": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0",
-          "System.Xml.XmlDocument": "4.3.0"
-        },
         "compile": {
-          "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "Newtonsoft.Json.Bson/1.0.1": {
@@ -3054,6 +3069,35 @@
         },
         "runtime": {
           "lib/netstandard1.1/Polly.dll": {}
+        }
+      },
+      "RabbitMQ.Client/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Console": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tracing": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Net.NameResolution": "4.3.0",
+          "System.Net.Security": "4.3.0",
+          "System.Net.Sockets": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Thread": "4.3.0",
+          "System.Threading.Timer": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.5/RabbitMQ.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/RabbitMQ.Client.dll": {}
         }
       },
       "Rafty/0.4.2": {
@@ -3611,46 +3655,6 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
-        }
-      },
-      "System.ComponentModel.Primitives/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "System.ComponentModel": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.0/System.ComponentModel.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/System.ComponentModel.Primitives.dll": {}
-        }
-      },
-      "System.ComponentModel.TypeConverter/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Collections.NonGeneric": "4.3.0",
-          "System.Collections.Specialized": "4.3.0",
-          "System.ComponentModel": "4.3.0",
-          "System.ComponentModel.Primitives": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Threading": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
         }
       },
       "System.Console/4.3.0": {
@@ -4479,22 +4483,6 @@
           "lib/netstandard1.3/System.Runtime.Numerics.dll": {}
         }
       },
-      "System.Runtime.Serialization.Formatters/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Runtime.Serialization.Formatters.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.4/System.Runtime.Serialization.Formatters.dll": {}
-        }
-      },
       "System.Runtime.Serialization.Json/4.0.2": {
         "type": "package",
         "dependencies": {
@@ -4867,7 +4855,7 @@
           "Microsoft.NETCore.Platforms": "2.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
@@ -5073,7 +5061,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Xml.XmlDocument.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
@@ -5315,6 +5303,40 @@
         "lib/net45/FluentValidation.xml",
         "lib/netstandard1.0/FluentValidation.dll",
         "lib/netstandard1.0/FluentValidation.xml"
+      ]
+    },
+    "Flurl/2.7.1": {
+      "sha512": "NnahoftiHIzZQpDE6MZeQzbFNYYY9X4B97W/IMIYANBMsGWboAX9iO/zYtBFeyL7wFlpwT+nPp9SqTCq6tdh6g==",
+      "type": "package",
+      "path": "flurl/2.7.1",
+      "files": [
+        "flurl.2.7.1.nupkg.sha512",
+        "flurl.nuspec",
+        "lib/net40/Flurl.dll",
+        "lib/net40/Flurl.xml",
+        "lib/netstandard1.0/Flurl.dll",
+        "lib/netstandard1.0/Flurl.xml",
+        "lib/netstandard1.3/Flurl.dll",
+        "lib/netstandard1.3/Flurl.xml",
+        "lib/netstandard2.0/Flurl.dll",
+        "lib/netstandard2.0/Flurl.xml"
+      ]
+    },
+    "Flurl.Http/2.3.0": {
+      "sha512": "13/fdnDM9EfxpzPvKRA4/1H77FsxqrSp61tEAorsyDX75siXtEcZ4490gRpdBAwYRIDaUnANCPi0uWGwLc8vPg==",
+      "type": "package",
+      "path": "flurl.http/2.3.0",
+      "files": [
+        "flurl.http.2.3.0.nupkg.sha512",
+        "flurl.http.nuspec",
+        "lib/net45/Flurl.Http.dll",
+        "lib/net45/Flurl.Http.xml",
+        "lib/netstandard1.1/Flurl.Http.dll",
+        "lib/netstandard1.1/Flurl.Http.xml",
+        "lib/netstandard1.3/Flurl.Http.dll",
+        "lib/netstandard1.3/Flurl.Http.xml",
+        "lib/netstandard2.0/Flurl.Http.dll",
+        "lib/netstandard2.0/Flurl.Http.xml"
       ]
     },
     "IdentityModel/2.13.0": {
@@ -8177,10 +8199,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/10.0.3": {
-      "sha512": "hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
+    "Newtonsoft.Json/11.0.1": {
+      "sha512": "pNN4l+J6LlpIvHOeNdXlwxv39NPJ2B5klz+Rd2UQZIx30Squ5oND1Yy3wEAUoKn0GPUj6Yxt9lxlYWQqfZcvKg==",
       "type": "package",
-      "path": "newtonsoft.json/10.0.3",
+      "path": "newtonsoft.json/11.0.1",
       "files": [
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
@@ -8195,13 +8217,14 @@
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.10.0.3.nupkg.sha512",
-        "newtonsoft.json.nuspec",
-        "tools/install.ps1"
+        "newtonsoft.json.11.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec"
       ]
     },
     "Newtonsoft.Json.Bson/1.0.1": {
@@ -8241,6 +8264,19 @@
         "lib/netstandard1.1/Polly.xml",
         "polly.5.3.1.nupkg.sha512",
         "polly.nuspec"
+      ]
+    },
+    "RabbitMQ.Client/5.0.1": {
+      "sha512": "89eFEAr5mV5GG2H3d4WFZEuhKmCR+EUjcphZ4+QLEkHPdo7B9kRH6X5WS0c6bHAY/B48uR0GuubnMTp5jGGmrA==",
+      "type": "package",
+      "path": "rabbitmq.client/5.0.1",
+      "files": [
+        "lib/net451/RabbitMQ.Client.dll",
+        "lib/net451/RabbitMQ.Client.xml",
+        "lib/netstandard1.5/RabbitMQ.Client.dll",
+        "lib/netstandard1.5/RabbitMQ.Client.xml",
+        "rabbitmq.client.5.0.1.nupkg.sha512",
+        "rabbitmq.client.nuspec"
       ]
     },
     "Rafty/0.4.2": {
@@ -9151,94 +9187,6 @@
         "system.componentmodel.annotations.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "System.ComponentModel.Primitives/4.3.0": {
-      "sha512": "j8GUkCpM8V4d4vhLIIoBLGey2Z5bCkMVNjEZseyAlm4n5arcsJOeI3zkUP+zvZgzsbLTYh4lYeP/ZD/gdIAPrw==",
-      "type": "package",
-      "path": "system.componentmodel.primitives/4.3.0",
-      "files": [
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/System.ComponentModel.Primitives.dll",
-        "lib/netstandard1.0/System.ComponentModel.Primitives.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/System.ComponentModel.Primitives.dll",
-        "ref/netstandard1.0/System.ComponentModel.Primitives.dll",
-        "ref/netstandard1.0/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/de/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/es/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/fr/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/it/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/ja/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/ko/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/ru/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/zh-hans/System.ComponentModel.Primitives.xml",
-        "ref/netstandard1.0/zh-hant/System.ComponentModel.Primitives.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.componentmodel.primitives.4.3.0.nupkg.sha512",
-        "system.componentmodel.primitives.nuspec"
-      ]
-    },
-    "System.ComponentModel.TypeConverter/4.3.0": {
-      "sha512": "16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
-      "type": "package",
-      "path": "system.componentmodel.typeconverter/4.3.0",
-      "files": [
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/System.ComponentModel.TypeConverter.dll",
-        "lib/net462/System.ComponentModel.TypeConverter.dll",
-        "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll",
-        "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/System.ComponentModel.TypeConverter.dll",
-        "ref/net462/System.ComponentModel.TypeConverter.dll",
-        "ref/netstandard1.0/System.ComponentModel.TypeConverter.dll",
-        "ref/netstandard1.0/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/de/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/es/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/fr/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/it/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/ja/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/ko/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/ru/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/zh-hans/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.0/zh-hant/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/System.ComponentModel.TypeConverter.dll",
-        "ref/netstandard1.5/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/de/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/es/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/fr/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/it/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/ja/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/ko/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/ru/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/zh-hans/System.ComponentModel.TypeConverter.xml",
-        "ref/netstandard1.5/zh-hant/System.ComponentModel.TypeConverter.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.componentmodel.typeconverter.4.3.0.nupkg.sha512",
-        "system.componentmodel.typeconverter.nuspec"
       ]
     },
     "System.Console/4.3.0": {
@@ -11650,33 +11598,6 @@
         "system.runtime.numerics.nuspec"
       ]
     },
-    "System.Runtime.Serialization.Formatters/4.3.0": {
-      "sha512": "KT591AkTNFOTbhZlaeMVvfax3RqhH1EJlcwF50Wm7sfnBLuHiOeZRRKrr1ns3NESkM20KPZ5Ol/ueMq5vg4QoQ==",
-      "type": "package",
-      "path": "system.runtime.serialization.formatters/4.3.0",
-      "files": [
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Runtime.Serialization.Formatters.dll",
-        "lib/netstandard1.4/System.Runtime.Serialization.Formatters.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/System.Runtime.Serialization.Formatters.dll",
-        "ref/netstandard1.3/System.Runtime.Serialization.Formatters.dll",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.runtime.serialization.formatters.4.3.0.nupkg.sha512",
-        "system.runtime.serialization.formatters.nuspec"
-      ]
-    },
     "System.Runtime.Serialization.Json/4.0.2": {
       "sha512": "+7DIJhnKYgCzUgcLbVTtRQb2l1M0FP549XFlFkQM5lmNiUBl44AfNbx4bz61xA8PzLtlYwfmif4JJJW7MPPnjg==",
       "type": "package",
@@ -13306,9 +13227,11 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "Flurl.Http >= 2.3.0",
       "Microsoft.AspNetCore.All >= 2.0.5",
       "Microsoft.NETCore.App >= 2.0.0",
       "Ocelot >= 5.3.1",
+      "RabbitMQ.Client >= 5.0.1",
       "Swashbuckle.AspNetCore.Swagger >= 2.3.0",
       "Swashbuckle.AspNetCore.SwaggerGen >= 2.3.0",
       "Swashbuckle.AspNetCore.SwaggerUI >= 2.3.0"
@@ -13358,6 +13281,10 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Flurl.Http": {
+            "target": "Package",
+            "version": "[2.3.0, )"
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "[2.0.5, )"
@@ -13370,6 +13297,10 @@
           "Ocelot": {
             "target": "Package",
             "version": "[5.3.1, )"
+          },
+          "RabbitMQ.Client": {
+            "target": "Package",
+            "version": "[5.0.1, )"
           },
           "Swashbuckle.AspNetCore.Swagger": {
             "target": "Package",

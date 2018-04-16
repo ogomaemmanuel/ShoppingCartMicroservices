@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BasketService.Conventions;
+using BasketService.Models;
+using BasketService.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,7 +26,14 @@ namespace BasketService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddTransient<IRepository<BasketItem>, BasketManager>();
+            services.AddDistributedRedisCache(options =>
+            {
+                options.Configuration = Configuration["Redis:Url"];
+            });
+            services.AddMvc(options => {
+                options.Conventions.Add(new ComplexTypeConvention());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +43,12 @@ namespace BasketService
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(builder =>
+            {
+
+                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().Build();
+
+            });
 
             app.UseMvc();
         }

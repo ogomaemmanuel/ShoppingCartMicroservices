@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "775be48000b0ecd78a84c4980228fc6739756edb"
+    "signature": "c0531ae991e4dfad7c72a7e5edfa20607318ae39"
   },
   "compilationOptions": {
     "defines": [
@@ -23,8 +23,11 @@
     ".NETCoreApp,Version=v2.0": {
       "BasketService/1.0.0": {
         "dependencies": {
+          "Flurl.Http": "2.3.0",
           "Microsoft.AspNetCore.All": "2.0.5",
           "Microsoft.NETCore.App": "2.0.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.2",
+          "RabbitMQ.Client": "5.0.1",
           "StackExchange.Redis": "1.2.6"
         },
         "runtime": {
@@ -32,6 +35,27 @@
         },
         "compile": {
           "BasketService.dll": {}
+        }
+      },
+      "Flurl/2.7.1": {
+        "runtime": {
+          "lib/netstandard2.0/Flurl.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Flurl.dll": {}
+        }
+      },
+      "Flurl.Http/2.3.0": {
+        "dependencies": {
+          "Flurl": "2.7.1",
+          "Newtonsoft.Json": "11.0.1",
+          "System.Text.Encoding.CodePages": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Flurl.Http.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Flurl.Http.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -420,7 +444,7 @@
       "Microsoft.AspNetCore.Authentication.OAuth/2.0.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication": "2.0.1",
-          "Newtonsoft.Json": "10.0.1"
+          "Newtonsoft.Json": "11.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.OAuth.dll": {}
@@ -793,7 +817,7 @@
       "Microsoft.AspNetCore.JsonPatch/2.0.0": {
         "dependencies": {
           "Microsoft.CSharp": "4.4.0",
-          "Newtonsoft.Json": "10.0.1"
+          "Newtonsoft.Json": "11.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {}
@@ -1051,7 +1075,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.1",
           "Microsoft.Extensions.Logging.Console": "2.0.0",
-          "Newtonsoft.Json": "10.0.1"
+          "Newtonsoft.Json": "11.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.NodeServices.dll": {}
@@ -1356,7 +1380,7 @@
           "Microsoft.Rest.ClientRuntime": "2.3.8",
           "Microsoft.Rest.ClientRuntime.Azure": "3.3.7",
           "NETStandard.Library": "2.0.0",
-          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json": "11.0.1",
           "System.Net.Http": "4.3.0"
         },
         "runtime": {
@@ -1370,7 +1394,7 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
           "NETStandard.Library": "2.0.0",
-          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json": "11.0.1",
           "System.Collections": "4.3.0",
           "System.Collections.Concurrent": "4.3.0",
           "System.Linq": "4.3.0",
@@ -1445,6 +1469,18 @@
           "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.dll": {}
         }
       },
+      "Microsoft.CodeAnalysis.CSharp.Workspaces/2.3.1": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp": "2.3.1",
+          "Microsoft.CodeAnalysis.Workspaces.Common": "2.3.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {}
+        }
+      },
       "Microsoft.CodeAnalysis.Razor/2.0.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Razor.Language": "2.0.1",
@@ -1456,6 +1492,23 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.CodeAnalysis.Razor.dll": {}
+        }
+      },
+      "Microsoft.CodeAnalysis.Workspaces.Common/2.3.1": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Common": "2.3.1",
+          "System.Composition": "1.0.31",
+          "System.Diagnostics.Contracts": "4.3.0",
+          "System.Linq.Parallel": "4.3.0",
+          "System.ObjectModel": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading.Tasks.Parallel": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.Workspaces.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.CodeAnalysis.Workspaces.dll": {}
         }
       },
       "Microsoft.CSharp/4.4.0": {},
@@ -1807,7 +1860,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration": "2.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "2.0.0",
-          "Newtonsoft.Json": "10.0.1"
+          "Newtonsoft.Json": "11.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll": {}
@@ -1862,7 +1915,7 @@
       "Microsoft.Extensions.DependencyModel/2.0.3": {
         "dependencies": {
           "Microsoft.DotNet.PlatformAbstractions": "2.0.3",
-          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json": "11.0.1",
           "System.Diagnostics.Debug": "4.3.0",
           "System.Dynamic.Runtime": "4.3.0",
           "System.Linq": "4.3.0"
@@ -2070,7 +2123,7 @@
       "Microsoft.Extensions.Logging.EventSource/2.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Logging": "2.0.0",
-          "Newtonsoft.Json": "10.0.1"
+          "Newtonsoft.Json": "11.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.EventSource.dll": {}
@@ -2164,7 +2217,7 @@
         "dependencies": {
           "NETStandard.Library": "2.0.0",
           "System.Runtime.Serialization.Json": "4.0.2",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
+          "System.Runtime.Serialization.Primitives": "4.1.1"
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {},
@@ -2218,7 +2271,7 @@
       "Microsoft.IdentityModel.Tokens/5.1.4": {
         "dependencies": {
           "Microsoft.IdentityModel.Logging": "1.1.4",
-          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json": "11.0.1",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Tools": "4.3.0",
           "System.Runtime": "4.3.0",
@@ -2255,7 +2308,7 @@
       "Microsoft.Rest.ClientRuntime/2.3.8": {
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Newtonsoft.Json": "10.0.1"
+          "Newtonsoft.Json": "11.0.1"
         },
         "runtime": {
           "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll": {}
@@ -2268,7 +2321,7 @@
         "dependencies": {
           "Microsoft.Rest.ClientRuntime": "2.3.8",
           "NETStandard.Library": "2.0.0",
-          "Newtonsoft.Json": "10.0.1"
+          "Newtonsoft.Json": "11.0.1"
         },
         "runtime": {
           "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.dll": {}
@@ -2289,6 +2342,102 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.BrowserLink.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration/2.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": "2.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.0.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "2.0.2",
+          "Newtonsoft.Json": "11.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.0.2": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": "2.0.2"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/dotnet-aspnet-codegenerator-design.dll": {}
+        },
+        "compile": {
+          "lib/netcoreapp2.0/dotnet-aspnet-codegenerator-design.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.0.2": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGeneration.Core": "2.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.0.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Razor.Extensions": "2.0.1",
+          "Microsoft.CodeAnalysis.CSharp": "2.3.1",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Utils": "2.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.0.2": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp.Workspaces": "2.3.1",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "2.0.2",
+          "Newtonsoft.Json": "11.0.1",
+          "NuGet.Frameworks": "4.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.0.2": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Web.CodeGeneration": "2.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -2318,52 +2467,63 @@
           "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
-      "Newtonsoft.Json/10.0.1": {
-        "dependencies": {
-          "Microsoft.CSharp": "4.4.0",
-          "System.Collections": "4.3.0",
-          "System.ComponentModel.TypeConverter": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Dynamic.Runtime": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.IO": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.ObjectModel": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Numerics": "4.3.0",
-          "System.Runtime.Serialization.Formatters": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0",
-          "System.Text.Encoding": "4.3.0",
-          "System.Text.Encoding.Extensions": "4.3.0",
-          "System.Text.RegularExpressions": "4.3.0",
-          "System.Threading": "4.3.0",
-          "System.Threading.Tasks": "4.3.0",
-          "System.Xml.ReaderWriter": "4.3.0",
-          "System.Xml.XDocument": "4.3.0",
-          "System.Xml.XmlDocument": "4.3.0"
-        },
+      "Newtonsoft.Json/11.0.1": {
         "runtime": {
-          "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "compile": {
-          "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "Newtonsoft.Json.Bson/1.0.1": {
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Newtonsoft.Json": "10.0.1"
+          "Newtonsoft.Json": "11.0.1"
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         },
         "compile": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "NuGet.Frameworks/4.0.0": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/NuGet.Frameworks.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/NuGet.Frameworks.dll": {}
+        }
+      },
+      "RabbitMQ.Client/5.0.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.0",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Console": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tracing": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Net.NameResolution": "4.3.0",
+          "System.Net.Security": "4.3.0",
+          "System.Net.Sockets": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Thread": "4.3.0",
+          "System.Threading.Timer": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.5/RabbitMQ.Client.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.5/RabbitMQ.Client.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -2736,36 +2896,113 @@
           "System.Threading": "4.3.0"
         }
       },
-      "System.ComponentModel/4.3.0": {
-        "dependencies": {
-          "System.Runtime": "4.3.0"
-        }
-      },
       "System.ComponentModel.Annotations/4.4.0": {},
-      "System.ComponentModel.Primitives/4.3.0": {
+      "System.Composition/1.0.31": {
         "dependencies": {
-          "System.ComponentModel": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
+          "System.Composition.AttributedModel": "1.0.31",
+          "System.Composition.Convention": "1.0.31",
+          "System.Composition.Hosting": "1.0.31",
+          "System.Composition.Runtime": "1.0.31",
+          "System.Composition.TypedParts": "1.0.31"
         }
       },
-      "System.ComponentModel.TypeConverter/4.3.0": {
+      "System.Composition.AttributedModel/1.0.31": {
+        "dependencies": {
+          "System.Reflection": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.AttributedModel.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.AttributedModel.dll": {}
+        }
+      },
+      "System.Composition.Convention/1.0.31": {
         "dependencies": {
           "System.Collections": "4.3.0",
-          "System.Collections.NonGeneric": "4.3.0",
-          "System.Collections.Specialized": "4.3.0",
-          "System.ComponentModel": "4.3.0",
-          "System.ComponentModel.Primitives": "4.3.0",
+          "System.Composition.AttributedModel": "1.0.31",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.Convention.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.Convention.dll": {}
+        }
+      },
+      "System.Composition.Hosting/1.0.31": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Composition.Runtime": "1.0.31",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.ObjectModel": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.Hosting.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.Hosting.dll": {}
+        }
+      },
+      "System.Composition.Runtime/1.0.31": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
           "System.Globalization": "4.3.0",
           "System.Linq": "4.3.0",
           "System.Reflection": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.Runtime.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.Runtime.dll": {}
+        }
+      },
+      "System.Composition.TypedParts/1.0.31": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Composition.AttributedModel": "1.0.31",
+          "System.Composition.Hosting": "1.0.31",
+          "System.Composition.Runtime": "1.0.31",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tools": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
-          "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Threading": "4.3.0"
+          "System.Runtime.Extensions": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.0/System.Composition.TypedParts.dll": {}
         }
       },
       "System.Console/4.3.0": {
@@ -3019,6 +3256,20 @@
           "System.Threading": "4.3.0"
         }
       },
+      "System.Linq.Parallel/4.3.0": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tracing": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        }
+      },
       "System.Linq.Queryable/4.0.1": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -3186,7 +3437,7 @@
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.1.1",
           "System.Text.Encoding": "4.3.0",
           "System.Text.Encoding.Extensions": "4.3.0",
           "System.Text.RegularExpressions": "4.3.0",
@@ -3328,15 +3579,6 @@
           "System.Runtime.Extensions": "4.3.0"
         }
       },
-      "System.Runtime.Serialization.Formatters/4.3.0": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
-        }
-      },
       "System.Runtime.Serialization.Json/4.0.2": {
         "dependencies": {
           "System.IO": "4.3.0",
@@ -3344,7 +3586,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Runtime.Serialization.Primitives/4.3.0": {
+      "System.Runtime.Serialization.Primitives/4.1.1": {
         "dependencies": {
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0"
@@ -3650,6 +3892,9 @@
             "rid": "win",
             "assetType": "runtime"
           }
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
         }
       },
       "System.Text.Encoding.Extensions/4.3.0": {
@@ -3818,7 +4063,7 @@
         "dependencies": {
           "Microsoft.Data.OData": "5.8.2",
           "NETStandard.Library": "2.0.0",
-          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json": "11.0.1",
           "System.Spatial": "5.8.2"
         },
         "runtime": {
@@ -4011,6 +4256,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Flurl/2.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NnahoftiHIzZQpDE6MZeQzbFNYYY9X4B97W/IMIYANBMsGWboAX9iO/zYtBFeyL7wFlpwT+nPp9SqTCq6tdh6g==",
+      "path": "flurl/2.7.1",
+      "hashPath": "flurl.2.7.1.nupkg.sha512"
+    },
+    "Flurl.Http/2.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-13/fdnDM9EfxpzPvKRA4/1H77FsxqrSp61tEAorsyDX75siXtEcZ4490gRpdBAwYRIDaUnANCPi0uWGwLc8vPg==",
+      "path": "flurl.http/2.3.0",
+      "hashPath": "flurl.http.2.3.0.nupkg.sha512"
     },
     "Libuv/1.10.0": {
       "type": "package",
@@ -4656,12 +4915,26 @@
       "path": "microsoft.codeanalysis.csharp/2.3.1",
       "hashPath": "microsoft.codeanalysis.csharp.2.3.1.nupkg.sha512"
     },
+    "Microsoft.CodeAnalysis.CSharp.Workspaces/2.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LpK7zgRU9TQ9KOZe7vDo4DEaPj6PM6HOpvTCOpBtS7GAbwOHU2IWUgnAJvFxILXKsqJDKrM0+O6zqZhG0sBYIw==",
+      "path": "microsoft.codeanalysis.csharp.workspaces/2.3.1",
+      "hashPath": "microsoft.codeanalysis.csharp.workspaces.2.3.1.nupkg.sha512"
+    },
     "Microsoft.CodeAnalysis.Razor/2.0.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Ncqt6UEh5s451dZHPwTK8YDbl5t4isn0q1Xs3I2JTjUs4xdCOSo2t0KPeb1PUeNDrTJ0vKDV6xMtQf1uqiTjoQ==",
       "path": "microsoft.codeanalysis.razor/2.0.1",
       "hashPath": "microsoft.codeanalysis.razor.2.0.1.nupkg.sha512"
+    },
+    "Microsoft.CodeAnalysis.Workspaces.Common/2.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/Y9zLXlvWVvGxLyNWvLrSRRZ6c1F3L2yVwhUcmGd9un7u/TJguOyY2BEOD10uA/KBDKbA4pmnWnJFq+2n5IYPg==",
+      "path": "microsoft.codeanalysis.workspaces.common/2.3.1",
+      "hashPath": "microsoft.codeanalysis.workspaces.common.2.3.1.nupkg.sha512"
     },
     "Microsoft.CSharp/4.4.0": {
       "type": "package",
@@ -5132,6 +5405,62 @@
       "path": "microsoft.visualstudio.web.browserlink/2.0.1",
       "hashPath": "microsoft.visualstudio.web.browserlink.2.0.1.nupkg.sha512"
     },
+    "Microsoft.VisualStudio.Web.CodeGeneration/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hyPNYu/jZIXfH/ymxQHRxkB2qb8qpQnb9R+sajyxCBA66XjYJsh+2zROmR0ZOgIXawNuEVcjFnq+CAtGLdO/GQ==",
+      "path": "microsoft.visualstudio.web.codegeneration/2.0.2",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AJfxuwaqbTl2ITFR99y8PZx08ErXCPDjJLLzr0uNnq9MOIIvDcfLQgbaxOgae05RL/xTl936LHQFXAAJchArbw==",
+      "path": "microsoft.visualstudio.web.codegeneration.contracts/2.0.2",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.contracts.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-of36Gj6SaoQ3qvrt+VQsycOUGSW+WZtpvJH1yvDaolXdWiNW254yC4Gd1AM0x3+bKQqrkJYoVu2LaloWvYYa8A==",
+      "path": "microsoft.visualstudio.web.codegeneration.core/2.0.2",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.core.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jhtIx2Qj9muaoLnYSkry4imTHCLvQ2wQTXVWf+l7YaneFkowcqAzdWnqXwYnART4UhWxlXbQtCxrGcyJgaL4hg==",
+      "path": "microsoft.visualstudio.web.codegeneration.design/2.0.2",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.design.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xMGyLe+IvlVZMwrcaZd2ztZUDq4OAB5pu1JhV0hnqXae7Rg9SFp8XqqVgvEbeXv37UWDrAJ3aaiDEQP/jPO0Yg==",
+      "path": "microsoft.visualstudio.web.codegeneration.entityframeworkcore/2.0.2",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.entityframeworkcore.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XGBMEv0Co6Cs7Axoow9AlMWZtqH5WCJQwQyFgNCgxo2QysDdLur6M2WHsvuShA8zAIjJu0+JQzOzeDd6jlP4fA==",
+      "path": "microsoft.visualstudio.web.codegeneration.templating/2.0.2",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.templating.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iHFv23BBc2+PDu2hHf7PMIedeZn9l8azlnrew0TgDj6eBp5yRd//1PSlhp81gYyPKJoi8BfJYhqVH6ZIuMCN8g==",
+      "path": "microsoft.visualstudio.web.codegeneration.utils/2.0.2",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.utils.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+H5eqw+SiEZvTzKDJXSUVSQvH/wYN0iSfftA0UL6OgJw+zLfPt6HQ5BZNSrCOBBobDSD/6eBC6PTMzZgsZTUmA==",
+      "path": "microsoft.visualstudio.web.codegenerators.mvc/2.0.2",
+      "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.2.0.2.nupkg.sha512"
+    },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5146,12 +5475,12 @@
       "path": "microsoft.win32.registry/4.4.0",
       "hashPath": "microsoft.win32.registry.4.4.0.nupkg.sha512"
     },
-    "Newtonsoft.Json/10.0.1": {
+    "Newtonsoft.Json/11.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ebWzW9j2nwxQeBo59As2TYn7nYr9BHicqqCwHOD1Vdo+50HBtLPuqdiCYJcLdTRknpYis/DSEOQz5KmZxwrIAg==",
-      "path": "newtonsoft.json/10.0.1",
-      "hashPath": "newtonsoft.json.10.0.1.nupkg.sha512"
+      "sha512": "sha512-pNN4l+J6LlpIvHOeNdXlwxv39NPJ2B5klz+Rd2UQZIx30Squ5oND1Yy3wEAUoKn0GPUj6Yxt9lxlYWQqfZcvKg==",
+      "path": "newtonsoft.json/11.0.1",
+      "hashPath": "newtonsoft.json.11.0.1.nupkg.sha512"
     },
     "Newtonsoft.Json.Bson/1.0.1": {
       "type": "package",
@@ -5159,6 +5488,20 @@
       "sha512": "sha512-5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
+    },
+    "NuGet.Frameworks/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WCkN68c8q+USG+Ot1MmBDH+9DUo5dk7UB0QDMiwCYhrH7ZoFLKFGGNzJ8C3LTR1DvB1LW9BOxKeznnZznKiCTA==",
+      "path": "nuget.frameworks/4.0.0",
+      "hashPath": "nuget.frameworks.4.0.0.nupkg.sha512"
+    },
+    "RabbitMQ.Client/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-89eFEAr5mV5GG2H3d4WFZEuhKmCR+EUjcphZ4+QLEkHPdo7B9kRH6X5WS0c6bHAY/B48uR0GuubnMTp5jGGmrA==",
+      "path": "rabbitmq.client/5.0.1",
+      "hashPath": "rabbitmq.client.5.0.1.nupkg.sha512"
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",
@@ -5419,13 +5762,6 @@
       "path": "system.collections.specialized/4.3.0",
       "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
     },
-    "System.ComponentModel/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==",
-      "path": "system.componentmodel/4.3.0",
-      "hashPath": "system.componentmodel.4.3.0.nupkg.sha512"
-    },
     "System.ComponentModel.Annotations/4.4.0": {
       "type": "package",
       "serviceable": true,
@@ -5433,19 +5769,47 @@
       "path": "system.componentmodel.annotations/4.4.0",
       "hashPath": "system.componentmodel.annotations.4.4.0.nupkg.sha512"
     },
-    "System.ComponentModel.Primitives/4.3.0": {
+    "System.Composition/1.0.31": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-j8GUkCpM8V4d4vhLIIoBLGey2Z5bCkMVNjEZseyAlm4n5arcsJOeI3zkUP+zvZgzsbLTYh4lYeP/ZD/gdIAPrw==",
-      "path": "system.componentmodel.primitives/4.3.0",
-      "hashPath": "system.componentmodel.primitives.4.3.0.nupkg.sha512"
+      "sha512": "sha512-I+D26qpYdoklyAVUdqwUBrEIckMNjAYnuPJy/h9dsQItpQwVREkDFs4b4tkBza0kT2Yk48Lcfsv2QQ9hWsh9Iw==",
+      "path": "system.composition/1.0.31",
+      "hashPath": "system.composition.1.0.31.nupkg.sha512"
     },
-    "System.ComponentModel.TypeConverter/4.3.0": {
+    "System.Composition.AttributedModel/1.0.31": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
-      "path": "system.componentmodel.typeconverter/4.3.0",
-      "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
+      "sha512": "sha512-NHWhkM3ZkspmA0XJEsKdtTt1ViDYuojgSND3yHhTzwxepiwqZf+BCWuvCbjUt4fe0NxxQhUDGJ5km6sLjo9qnQ==",
+      "path": "system.composition.attributedmodel/1.0.31",
+      "hashPath": "system.composition.attributedmodel.1.0.31.nupkg.sha512"
+    },
+    "System.Composition.Convention/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GLjh2Ju71k6C0qxMMtl4efHa68NmWeIUYh4fkUI8xbjQrEBvFmRwMDFcylT8/PR9SQbeeL48IkFxU/+gd0nYEQ==",
+      "path": "system.composition.convention/1.0.31",
+      "hashPath": "system.composition.convention.1.0.31.nupkg.sha512"
+    },
+    "System.Composition.Hosting/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fN1bT4RX4vUqjbgoyuJFVUizAl2mYF5VAb+bVIxIYZSSc0BdnX+yGAxcavxJuDDCQ1K+/mdpgyEFc8e9ikjvrg==",
+      "path": "system.composition.hosting/1.0.31",
+      "hashPath": "system.composition.hosting.1.0.31.nupkg.sha512"
+    },
+    "System.Composition.Runtime/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0LEJN+2NVM89CE4SekDrrk5tHV5LeATltkp+9WNYrR+Huiyt0vaCqHbbHtVAjPyeLWIc8dOz/3kthRBj32wGQg==",
+      "path": "system.composition.runtime/1.0.31",
+      "hashPath": "system.composition.runtime.1.0.31.nupkg.sha512"
+    },
+    "System.Composition.TypedParts/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0Zae/FtzeFgDBBuILeIbC/T9HMYbW4olAmi8XqqAGosSOWvXfiQLfARZEhiGd0LVXaYgXr0NhxiU1LldRP1fpQ==",
+      "path": "system.composition.typedparts/1.0.31",
+      "hashPath": "system.composition.typedparts.1.0.31.nupkg.sha512"
     },
     "System.Console/4.3.0": {
       "type": "package",
@@ -5593,6 +5957,13 @@
       "sha512": "sha512-PGKkrd2khG4CnlyJwxwwaWWiSiWFNBGlgXvJpeO0xCXrZ89ODrQ6tjEWS/kOqZ8GwEOUATtKtzp1eRgmYNfclg==",
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
+    },
+    "System.Linq.Parallel/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-td7x21K8LalpjTWCzW/nQboQIFbq9i0r+PCyBBCdLWWnm4NBcdN18vpz/G9hCpUaCIfRL+ZxJNVTywlNlB1aLQ==",
+      "path": "system.linq.parallel/4.3.0",
+      "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
     },
     "System.Linq.Queryable/4.0.1": {
       "type": "package",
@@ -5769,13 +6140,6 @@
       "path": "system.runtime.numerics/4.3.0",
       "hashPath": "system.runtime.numerics.4.3.0.nupkg.sha512"
     },
-    "System.Runtime.Serialization.Formatters/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KT591AkTNFOTbhZlaeMVvfax3RqhH1EJlcwF50Wm7sfnBLuHiOeZRRKrr1ns3NESkM20KPZ5Ol/ueMq5vg4QoQ==",
-      "path": "system.runtime.serialization.formatters/4.3.0",
-      "hashPath": "system.runtime.serialization.formatters.4.3.0.nupkg.sha512"
-    },
     "System.Runtime.Serialization.Json/4.0.2": {
       "type": "package",
       "serviceable": true,
@@ -5783,12 +6147,12 @@
       "path": "system.runtime.serialization.json/4.0.2",
       "hashPath": "system.runtime.serialization.json.4.0.2.nupkg.sha512"
     },
-    "System.Runtime.Serialization.Primitives/4.3.0": {
+    "System.Runtime.Serialization.Primitives/4.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
-      "path": "system.runtime.serialization.primitives/4.3.0",
-      "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
+      "sha512": "sha512-HZ6Du5QrTG8MNJbf4e4qMO3JRAkIboGT5Fk804uZtg3Gq516S7hAqTm2UZKUHa7/6HUGdVy3AqMQKbns06G/cg==",
+      "path": "system.runtime.serialization.primitives/4.1.1",
+      "hashPath": "system.runtime.serialization.primitives.4.1.1.nupkg.sha512"
     },
     "System.Security.AccessControl/4.4.0": {
       "type": "package",

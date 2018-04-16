@@ -1,22 +1,26 @@
-﻿using OrderService.Models;
+﻿using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using OrderService.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
+using Flurl.Http;
+
+
 
 namespace OrderService.Services
 {
     public class OrdersManager : IRepository<Order>
     {
         private readonly ShoppingCartDbContext _dbContext;
-        //private readonly IOptions<StkSetting> _stkSettings;
-        //private readonly IOptions<ShoppingCartStkPushKey> _shoppingCartStkPushKey;
-        //private readonly IOptions<ShoppingCartStkPushKey> shoppingCartStkPushKey;
-        public OrdersManager(ShoppingCartDbContext dbContext)
+        private readonly IOptions<StkSetting> _stkSettings;
+        private readonly IOptions<ShoppingCartStkPushKey> _shoppingCartStkPushKey;      
+        public OrdersManager(ShoppingCartDbContext dbContext, IOptions<StkSetting> stkSettings, IOptions<ShoppingCartStkPushKey> shoppingCartStkPushKey)
         {
             _dbContext = dbContext;
-            //_stkSettings = stkSettings;
-            //_shoppingCartStkPushKey = shoppingCartStkPushKey;
+            _stkSettings = stkSettings;
+            _shoppingCartStkPushKey = shoppingCartStkPushKey;
         }
         public bool Add(Order order)
         {
@@ -137,7 +141,7 @@ namespace OrderService.Services
                 this._dbContext.BillingInfos.Add(billingInfo);
                 this._dbContext.OrderItems.AddRange(orderItems);
                 this._dbContext.SaveChanges();
-                //ToDo SendStkPushNotifaction();
+                SendStkPushNotifaction(order);
                 return true;
             }
             catch (Exception)
@@ -166,27 +170,25 @@ namespace OrderService.Services
                                       }).ToList();
             return customersOrderList;
         }
-        //private void SendStkPushNotifaction()
-        //{
+        private void SendStkPushNotifaction(Order order)
+        {
+            ShoppingCartApiAccessToken shoppingCartApiAccessToken = GetAuthToken();
+            var result = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
+                .WithOAuthBearerToken(shoppingCartApiAccessToken.AccessToken)
+                .PostJsonAsync(this._stkSettings.Value)
+                .ReceiveString().Result;
+        }
 
 
-        //    ShoppingCartApiAccessToken shoppingCartApiAccessToken = GetAuthToken();
-        //    var result = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-        //        .WithOAuthBearerToken(shoppingCartApiAccessToken.AccessToken)
-        //        .PostJsonAsync(this._stkSettings.Value)
-        //        .ReceiveString().Result;
-        //}
+        private ShoppingCartApiAccessToken GetAuthToken()
+        {
 
-
-        //private ShoppingCartApiAccessToken GetAuthToken()
-        //{
-
-        //    var result = _shoppingCartStkPushKey.Value.Url
-        //        .WithBasicAuth(_shoppingCartStkPushKey.Value.ConsumerKey, _shoppingCartStkPushKey.Value.ConsumerSecret)
-        //        .GetStringAsync().Result;
-        //    ShoppingCartApiAccessToken shoppingCartApiAccessToken = JsonConvert.DeserializeObject<ShoppingCartApiAccessToken>(result);
-        //    Debug.Write(JsonConvert.SerializeObject(this._stkSettings.Value));
-        //    return shoppingCartApiAccessToken;
-        //}
+            var result = _shoppingCartStkPushKey.Value.Url
+                .WithBasicAuth(_shoppingCartStkPushKey.Value.ConsumerKey, _shoppingCartStkPushKey.Value.ConsumerSecret)
+                .GetStringAsync().Result;
+            ShoppingCartApiAccessToken shoppingCartApiAccessToken = JsonConvert.DeserializeObject<ShoppingCartApiAccessToken>(result);
+            Debug.Write(JsonConvert.SerializeObject(this._stkSettings.Value));
+            return shoppingCartApiAccessToken;
+        }
     }
 }

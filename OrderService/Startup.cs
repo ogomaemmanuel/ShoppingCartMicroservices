@@ -65,7 +65,8 @@ namespace OrderService
                 errorNumbersToAdd: null);
             })
             );
-           
+            services.Configure<StkSetting>(options => Configuration.GetSection("StkSetting").Bind(options));
+            services.Configure<ShoppingCartStkPushKey>(options => Configuration.GetSection("ShoppingCartStkPushKey").Bind(options));
             services.AddTransient<IRepository<Order>, OrdersManager>();
            
             
