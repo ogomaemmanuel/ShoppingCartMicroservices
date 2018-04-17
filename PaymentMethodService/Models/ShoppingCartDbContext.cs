@@ -11,7 +11,7 @@ namespace PaymentMethodService.Models
         public ShoppingCartDbContext(DbContextOptions<ShoppingCartDbContext> options)
         : base(options)
         {
-           // Database.Migrate();
+            Database.Migrate();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

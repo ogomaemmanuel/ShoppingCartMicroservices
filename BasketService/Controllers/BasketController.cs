@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BasketService.Models;
 using BasketService.Services;
+using System.Security.Claims;
 
 namespace BasketService.Controllers
 {
@@ -21,13 +22,15 @@ namespace BasketService.Controllers
         } 
         [HttpPost]       
         public IActionResult AddBasketIetm([FromBody]BasketItem customerbasketItem) {
-            this._basketManager.Add(customerbasketItem, "testCustomer");
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            this._basketManager.Add(customerbasketItem, userId);
             return new OkResult();
         }
         [HttpGet]
-        [Route("{customerId}")]
+        [Route("{customerId?}")]
         public IActionResult GetCustomerBasketItems([FromRoute]String customerId) {
-            var customerBasketItems = _basketManager.GetByCustomerId(customerId);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value?? customerId;
+            var customerBasketItems = _basketManager.GetByCustomerId(userId);
             return new OkObjectResult(customerBasketItems);
         }
     }
