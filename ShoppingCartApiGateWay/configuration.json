@@ -6,8 +6,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9001
+          "Host": "basketservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/Basket",
@@ -18,8 +18,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9001
+          "Host": "basketservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/Basket/{customerId?}",
@@ -31,8 +31,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9001
+          "Host": "basketservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/Basket/{customerId?}/{itemId}",
@@ -46,8 +46,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9002
+          "Host": "manufacturerservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/Manufacturer",
@@ -58,7 +58,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "manufacturerservice",
           "Port": 9002
         }
       ],
@@ -73,8 +73,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9003
+          "Host": "orderservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/orders",
@@ -86,8 +86,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9003
+          "Host": "orderservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/orders/{id}",
@@ -98,8 +98,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9003
+          "Host": "orderservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/orders/customer/{id}",
@@ -111,8 +111,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9003
+          "Host": "orderservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/orders/order-items/{id}",
@@ -126,8 +126,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9004
+          "Host": "paymentmethodservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/PaymentMethods",
@@ -139,8 +139,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9004
+          "Host": "paymentmethodservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/PaymentMethods/{id}",
@@ -153,8 +153,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9005
+          "Host": "productcategoryservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/ProductsCategory",
@@ -166,8 +166,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9005
+          "Host": "productcategoryservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/ProductsCategory/{id}",
@@ -180,8 +180,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9006
+          "Host": "productservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/products/all",
@@ -192,8 +192,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9006
+          "Host": "productservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/products/{id}",
@@ -205,8 +205,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9006
+          "Host": "productservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/products",
@@ -219,8 +219,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9007
+          "Host": "shipmentmethodservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/ShipmentMethods",
@@ -231,8 +231,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 9007
+          "Host": "shipmentmethodservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/ShipmentMethods/{id}",
