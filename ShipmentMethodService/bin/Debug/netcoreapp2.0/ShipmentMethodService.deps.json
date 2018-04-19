@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "e7a28e93df77030fea764a9109141d49e1d33776"
+    "signature": "2116a993a3044582156d61f6f7861c8e69d82bdc"
   },
   "compilationOptions": {
     "defines": [
@@ -31,7 +31,8 @@
           "RabbitMQ.Client": "5.0.1",
           "Swashbuckle.AspNetCore.Swagger": "2.3.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "2.3.0",
-          "Swashbuckle.AspNetCore.SwaggerUI": "2.3.0"
+          "Swashbuckle.AspNetCore.SwaggerUI": "2.3.0",
+          "WindowsAzure.ServiceBus": "4.1.8"
         },
         "runtime": {
           "ShipmentMethodService.dll": {}
@@ -4073,6 +4074,14 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "WindowsAzure.ServiceBus/4.1.8": {
+        "runtime": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        }
+      },
       "WindowsAzure.Storage/8.1.4": {
         "dependencies": {
           "Microsoft.Data.OData": "5.8.2",
@@ -6405,6 +6414,13 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "WindowsAzure.ServiceBus/4.1.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wYASrsyV1m/7dWcF/CeulEg5nC/4mPQ/bFuK+QVIXHXkhD3XQKBBqFkexcQOoOYsCmPQA9iBe/jn6vTMm4ADeA==",
+      "path": "windowsazure.servicebus/4.1.8",
+      "hashPath": "windowsazure.servicebus.4.1.8.nupkg.sha512"
     },
     "WindowsAzure.Storage/8.1.4": {
       "type": "package",

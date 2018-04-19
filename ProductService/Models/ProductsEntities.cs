@@ -21,4 +21,15 @@ namespace ProductService.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ProductId { get; set; }
     }
+
+    public class ProductRating {
+        public int Rating { get; set; }
+        public Guid ProductId { get; set; }
+        public string CustomerId { get; set; }
+        public string Comment { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid ProductRatingId { get; set; }
+
+    }
 }

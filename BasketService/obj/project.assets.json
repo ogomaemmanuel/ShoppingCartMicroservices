@@ -5004,6 +5004,15 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "WindowsAzure.ServiceBus/4.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        }
+      },
       "WindowsAzure.Storage/8.1.4": {
         "type": "package",
         "dependencies": {
@@ -12976,6 +12985,19 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "WindowsAzure.ServiceBus/4.1.8": {
+      "sha512": "wYASrsyV1m/7dWcF/CeulEg5nC/4mPQ/bFuK+QVIXHXkhD3XQKBBqFkexcQOoOYsCmPQA9iBe/jn6vTMm4ADeA==",
+      "type": "package",
+      "path": "windowsazure.servicebus/4.1.8",
+      "files": [
+        "content/app.config.install.xdt",
+        "content/web.config.install.xdt",
+        "lib/net45/Microsoft.ServiceBus.dll",
+        "lib/net45/Microsoft.ServiceBus.xml",
+        "windowsazure.servicebus.4.1.8.nupkg.sha512",
+        "windowsazure.servicebus.nuspec"
+      ]
+    },
     "WindowsAzure.Storage/8.1.4": {
       "sha512": "W6ZZ0/o7+3Qb77mRAQyLjPudHG3OMeeQ4p9yY13PUdJArmRCx2cLMm5F4tpIjJXxzHC0ew0oK7DMDGILMdfCnw==",
       "type": "package",
@@ -13007,7 +13029,8 @@
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.2",
       "RabbitMQ.Client >= 5.0.1",
-      "StackExchange.Redis >= 1.2.6"
+      "StackExchange.Redis >= 1.2.6",
+      "WindowsAzure.ServiceBus >= 4.1.8"
     ]
   },
   "packageFolders": {
@@ -13016,9 +13039,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\BasketService\\BasketService.csproj",
       "projectName": "BasketService",
@@ -13082,6 +13102,10 @@
           "StackExchange.Redis": {
             "target": "Package",
             "version": "[1.2.6, )"
+          },
+          "WindowsAzure.ServiceBus": {
+            "target": "Package",
+            "version": "[4.1.8, )"
           }
         },
         "imports": [
@@ -13091,5 +13115,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'WindowsAzure.ServiceBus 4.1.8' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "WindowsAzure.ServiceBus",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }

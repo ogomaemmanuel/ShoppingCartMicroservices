@@ -31,6 +31,7 @@ namespace BasketService
             {
                 options.Configuration = Configuration["Redis:Url"];
             });
+            services.AddSingleton<IOrderPlacedSubsriber,OrderPlacedSubscriber>();
             services.AddMvc(options => {
                 options.Conventions.Add(new ComplexTypeConvention());
             });
@@ -49,8 +50,37 @@ namespace BasketService
                 builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().Build();
 
             });
-
+            app.UseRabbitListener();
             app.UseMvc();
         }
     }
-}
+
+    public static class ApplicationBuilderExtentions
+    {
+        public static IOrderPlacedSubsriber Listener { get; set; }
+
+        public static IApplicationBuilder UseRabbitListener(this IApplicationBuilder app)
+        {
+            Listener = app.ApplicationServices.GetService<IOrderPlacedSubsriber>();
+
+            var life = app.ApplicationServices.GetService<IApplicationLifetime>();
+
+            life.ApplicationStarted.Register(OnStarted);
+
+            //press Ctrl+C to reproduce if your app runs in Kestrel as a console app
+            life.ApplicationStopping.Register(OnStopping);
+
+            return app;
+        }
+
+        private static void OnStarted()
+        {
+            Listener.Handle();
+        }
+
+        private static void OnStopping()
+        {
+           // Listener.Deregister();
+        }
+        }
+    }

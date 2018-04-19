@@ -101,6 +101,7 @@ namespace OrderService.Services
         {
             try
             {
+                customerOrder.CustomerId = customerId;
                 var order = new Order()
                 {
                     CustomerId = customerId,
@@ -141,6 +142,7 @@ namespace OrderService.Services
                 this._dbContext.BillingInfos.Add(billingInfo);
                 this._dbContext.OrderItems.AddRange(orderItems);
                 this._dbContext.SaveChanges();
+
                 SendStkPushNotifaction(order);
                 return true;
             }

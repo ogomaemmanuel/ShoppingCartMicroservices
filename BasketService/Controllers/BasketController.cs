@@ -33,5 +33,12 @@ namespace BasketService.Controllers
             var customerBasketItems = _basketManager.GetByCustomerId(userId);
             return new OkObjectResult(customerBasketItems);
         }
+        [HttpDelete]
+        [Route("{customerId?}/{itemId}")]
+        public IActionResult RemoveBasketItem([FromRoute]String customerId,Guid itemId) {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? customerId;
+            var customerBasketItems = _basketManager.RemoveSingleBasketItem(itemId, userId);
+            return new OkResult();
+        }
     }
 }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "bde0a0ed196d68be3ea21a825a357d80e7161b36"
+    "signature": "42e0520d52cce52a4bb9991697af92fbe9a3e99c"
   },
   "compilationOptions": {
     "defines": [
@@ -29,7 +29,8 @@
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.2",
           "RabbitMQ.Client": "5.0.1",
-          "StackExchange.Redis": "1.2.6"
+          "StackExchange.Redis": "1.2.6",
+          "WindowsAzure.ServiceBus": "4.1.8"
         },
         "runtime": {
           "BasketService.dll": {}
@@ -4060,6 +4061,14 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "WindowsAzure.ServiceBus/4.1.8": {
+        "runtime": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.ServiceBus.dll": {}
+        }
+      },
       "WindowsAzure.Storage/8.1.4": {
         "dependencies": {
           "Microsoft.Data.OData": "5.8.2",
@@ -6378,6 +6387,13 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "WindowsAzure.ServiceBus/4.1.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wYASrsyV1m/7dWcF/CeulEg5nC/4mPQ/bFuK+QVIXHXkhD3XQKBBqFkexcQOoOYsCmPQA9iBe/jn6vTMm4ADeA==",
+      "path": "windowsazure.servicebus/4.1.8",
+      "hashPath": "windowsazure.servicebus.4.1.8.nupkg.sha512"
     },
     "WindowsAzure.Storage/8.1.4": {
       "type": "package",

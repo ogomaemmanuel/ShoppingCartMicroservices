@@ -1,13 +1,20 @@
 services:
+  basket.data:
+    image: redis
+    ports:
+    - 6379:6379/tcp
   basketservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
       dockerfile: BasketService/Dockerfile
+    depends_on:
+    - basket.data
+    - rabbitmq
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     image: basketservice
     ports:
-    - 80/tcp
+    - 9001:80/tcp
   manufacturerservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -16,16 +23,20 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: manufacturerservice
     ports:
-    - 80/tcp
+    - 9002:80/tcp
+  nosql.data:
+    image: mongo
   orderservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
       dockerfile: OrderService/Dockerfile
+    depends_on:
+    - rabbitmq
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     image: orderservice
     ports:
-    - 80/tcp
+    - 9003:80/tcp
   paymentmethodservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -34,7 +45,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: paymentmethodservice
     ports:
-    - 80/tcp
+    - 9004:80/tcp
   productcategoryservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -43,7 +54,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: productcategoryservice
     ports:
-    - 80/tcp
+    - 9005:80/tcp
   productservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -52,7 +63,14 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: productservice
     ports:
-    - 80/tcp
+    - 9006:80/tcp
+  rabbitmq:
+    container_name: rabbit
+    hostname: my-rabbit
+    image: rabbitmq:3-management
+    ports:
+    - 5672:5672/tcp
+    - 15672:15672/tcp
   shipmentmethodservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -61,7 +79,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: shipmentmethodservice
     ports:
-    - 80/tcp
+    - 9007:80/tcp
   shoppingcartapigateway:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -70,5 +88,5 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: shoppingcartapigateway
     ports:
-    - 80/tcp
+    - 9008:80/tcp
 version: '3.0'

@@ -44,6 +44,24 @@ namespace ProductService.Migrations
 
                     b.ToTable("Products");
                 });
+
+            modelBuilder.Entity("ProductService.Models.ProductRating", b =>
+                {
+                    b.Property<Guid>("ProductRatingId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Comment");
+
+                    b.Property<string>("CustomerId");
+
+                    b.Property<Guid>("ProductId");
+
+                    b.Property<int>("Rating");
+
+                    b.HasKey("ProductRatingId");
+
+                    b.ToTable("ProductRatings");
+                });
 #pragma warning restore 612, 618
         }
     }
