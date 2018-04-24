@@ -8,10 +8,6 @@ namespace OrderService.Models
     /// <summary>
     /// contains classes used when querying the service
     /// </summary>
-    public class ViewModels
-    {
-    }
-
     public class CustomerOrder
     {
         public string Email { get; set; }

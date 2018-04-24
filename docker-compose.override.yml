@@ -55,6 +55,12 @@ services:
     ports:
       - "9008:80"
 
+  paymentservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "9009:80"
+
   basket.data:
     ports:
       - "6379:6379"    # Important: In a production environment your should remove the external port
@@ -66,3 +72,9 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+  paymentservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

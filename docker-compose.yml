@@ -54,6 +54,13 @@ services:
       dockerfile: ShipmentMethodService/Dockerfile
 
 
+
+  paymentservice:
+    image: paymentservice
+    build:
+      context: .
+      dockerfile: PaymentService/Dockerfile
+
   shoppingcartapigateway:
     image: shoppingcartapigateway
     ports:
@@ -82,4 +89,7 @@ services:
 
 
   
+
+
+ 
 

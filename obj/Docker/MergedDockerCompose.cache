@@ -46,6 +46,15 @@ services:
     image: paymentmethodservice
     ports:
     - 9004:80/tcp
+  paymentservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
+      dockerfile: ../PaymentService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: paymentservice
+    ports:
+    - 80/tcp
   productcategoryservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
