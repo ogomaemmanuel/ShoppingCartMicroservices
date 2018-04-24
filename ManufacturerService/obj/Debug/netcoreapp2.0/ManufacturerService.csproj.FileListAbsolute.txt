@@ -9,4 +9,3 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debu
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debug\netcoreapp2.0\ManufacturerService.AssemblyInfo.cs
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debug\netcoreapp2.0\ManufacturerService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debug\netcoreapp2.0\ManufacturerService.pdb
-C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService\obj\Debug\netcoreapp2.0\ManufacturerService.csprojResolveAssemblyReference.cache

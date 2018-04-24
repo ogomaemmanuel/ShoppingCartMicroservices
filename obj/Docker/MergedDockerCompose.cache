@@ -49,7 +49,7 @@ services:
   paymentservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
-      dockerfile: ../PaymentService/Dockerfile
+      dockerfile: PaymentService/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     image: paymentservice

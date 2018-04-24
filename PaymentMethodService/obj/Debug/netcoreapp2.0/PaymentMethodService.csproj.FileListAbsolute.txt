@@ -3,7 +3,6 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\bin\Deb
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\bin\Debug\netcoreapp2.0\PaymentMethodService.runtimeconfig.dev.json
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\bin\Debug\netcoreapp2.0\PaymentMethodService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\bin\Debug\netcoreapp2.0\PaymentMethodService.pdb
-C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\obj\Debug\netcoreapp2.0\PaymentMethodService.csprojResolveAssemblyReference.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\obj\Debug\netcoreapp2.0\PaymentMethodService.csproj.CoreCompileInputs.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\obj\Debug\netcoreapp2.0\PaymentMethodService.AssemblyInfoInputs.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\obj\Debug\netcoreapp2.0\PaymentMethodService.AssemblyInfo.cs

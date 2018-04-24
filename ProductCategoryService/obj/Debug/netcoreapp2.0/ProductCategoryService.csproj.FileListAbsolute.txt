@@ -3,7 +3,6 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\bin\D
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\bin\Debug\netcoreapp2.0\ProductCategoryService.runtimeconfig.dev.json
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\bin\Debug\netcoreapp2.0\ProductCategoryService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\bin\Debug\netcoreapp2.0\ProductCategoryService.pdb
-C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.csprojResolveAssemblyReference.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.csproj.CoreCompileInputs.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.AssemblyInfoInputs.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.AssemblyInfo.cs
