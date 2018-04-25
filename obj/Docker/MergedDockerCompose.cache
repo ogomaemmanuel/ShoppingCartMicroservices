@@ -50,11 +50,13 @@ services:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
       dockerfile: PaymentService/Dockerfile
+    depends_on:
+    - rabbitmq
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     image: paymentservice
     ports:
-    - 80/tcp
+    - 9009:80/tcp
   productcategoryservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2

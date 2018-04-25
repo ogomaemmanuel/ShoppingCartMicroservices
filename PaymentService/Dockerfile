@@ -4,22 +4,20 @@
 #
 #FROM microsoft/aspnetcore-build:2.0 AS build
 #WORKDIR /src
-#COPY ShoppingCartVersion2.sln ./
-#COPY ../PaymentService/PaymentService.csproj ../PaymentService/
-#RUN dotnet restore -nowarn:msb3202,nu1503
+#COPY *.sln ./
+#COPY ProductService/ProductService.csproj ProductService/
+#RUN dotnet restore
 #COPY . .
-#WORKDIR /src/../PaymentService
+#WORKDIR /src/ProductService
 #RUN dotnet build -c Release -o /app
 #
 #FROM build AS publish
 #RUN dotnet publish -c Release -o /app
-
-
-
+#
 #FROM base AS final
 #WORKDIR /app
 #COPY --from=publish /app .
-#ENTRYPOINT ["dotnet", "PaymentService.dll"]
+#ENTRYPOINT ["dotnet", "ProductService.dll"]
 
 
 FROM microsoft/aspnetcore:2.0.5 AS base
@@ -30,7 +28,7 @@ FROM microsoft/aspnetcore-build:2.0.5-2.1.4 AS build
 WORKDIR /src
 COPY . .
 RUN dotnet restore -nowarn:msb3202,nu1503
-WORKDIR /src/PaymentService
+WORKDIR /src/ProductService
 RUN dotnet build --no-restore -c Release -o /app
 
 FROM build AS publish
@@ -39,4 +37,4 @@ RUN dotnet publish --no-restore -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "PaymentService.dll"]
+ENTRYPOINT ["dotnet", "ProductService.dll"]

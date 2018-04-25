@@ -11,7 +11,7 @@ namespace ProductService.Models
         public ShoppingCartDbContext(DbContextOptions<ShoppingCartDbContext> options)
          : base(options)
         {
-            Database.Migrate();
+            Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

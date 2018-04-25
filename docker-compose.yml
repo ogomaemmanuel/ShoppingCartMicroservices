@@ -53,10 +53,10 @@ services:
       context: .
       dockerfile: ShipmentMethodService/Dockerfile
 
-
-
   paymentservice:
     image: paymentservice
+    depends_on:      
+      - rabbitmq
     build:
       context: .
       dockerfile: PaymentService/Dockerfile

@@ -48,6 +48,11 @@ services:
     ports:
       - "9007:80"
 
+  paymentservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "9009:80"
 
   shoppingcartapigateway:
     environment:
@@ -55,11 +60,7 @@ services:
     ports:
       - "9008:80"
 
-  paymentservice:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "9009:80"
+  
 
   basket.data:
     ports:
@@ -72,9 +73,4 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
-  paymentservice:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "80"
 

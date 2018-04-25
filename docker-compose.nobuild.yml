@@ -49,6 +49,13 @@ services:
       context: .
       dockerfile: ProductService/Dockerfile
 
+  paymentservice:
+    image: paymentservice
+    depends_on:      
+      - rabbitmq
+    build:
+      context: .
+      dockerfile: PaymentService/Dockerfile
 
   shipmentmethodservice:
     image: shipmentmethodservice
@@ -67,6 +74,7 @@ services:
       - productcategoryservice
       - shipmentmethodservice
       - productservice
+      - paymentservice
     build:
       context: .
       dockerfile: ShoppingCartApiGateWay/Dockerfile

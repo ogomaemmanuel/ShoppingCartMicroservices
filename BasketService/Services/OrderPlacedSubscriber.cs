@@ -14,18 +14,13 @@ namespace BasketService.Services
     public class OrderPlacedSubscriber : IOrderPlacedSubsriber
     {
         private readonly IRepository<BasketItem> _basketManager;
-        public OrderPlacedSubscriber(IRepository<BasketItem> basketManager) {
+        public OrderPlacedSubscriber(IRepository<BasketItem> basketManager)
+        {
             _basketManager = basketManager;
         }
 
         public void Handle()
         {
-
-
-
-            var onlineStoreMqUserName = Environment.GetEnvironmentVariable("RABBIT_MQ_USERNAME");
-            var onlineStoreMqPassword = Environment.GetEnvironmentVariable("RABBIT_MQ_PASSWORD");
-            var onlineStoreMqServer = Environment.GetEnvironmentVariable("RABBIT_MQ_SERVER");
 
             ConnectionFactory connectionFactory = new ConnectionFactory();
             connectionFactory.Uri = new Uri("amqp://guest:guest@rabbitmq:5672");
@@ -43,39 +38,31 @@ namespace BasketService.Services
 
 
             using (IConnection connection = connectionFactory.CreateConnection())
+            {
+
+                using (var channel = connection.CreateModel())
                 {
+                    channel.QueueDeclare(queue: "orderplaced",
+                                 durable: false,
+                                 exclusive: false,
+                                 autoDelete: false,
+                                 arguments: null);
 
-                    using (var channel = connection.CreateModel())
+                    var consumer = new EventingBasicConsumer(channel);
+                    consumer.Received += (model, ea) =>
                     {
-                        channel.QueueDeclare(queue: "orderplaced",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
-
-                        var consumer = new EventingBasicConsumer(channel);
-                        consumer.Received += (model, ea) =>
-                        {
-                            var body = ea.Body;
-                            var message = Encoding.UTF8.GetString(body);
-                            CustomerOrder customerOrder = JsonConvert.DeserializeObject<CustomerOrder>(message);
-                            _basketManager.ClearBasketByCustomerId(customerOrder.CustomerId);
-                            Debug.WriteLine(" [x] Received {0}", message);
-                        };
-                        channel.BasicConsume(queue: "orderplaced",
-                                             autoAck: true,
-                                             consumer: consumer);
-                    }
-
+                        var body = ea.Body;
+                        var message = Encoding.UTF8.GetString(body);
+                        CustomerOrder customerOrder = JsonConvert.DeserializeObject<CustomerOrder>(message);
+                        _basketManager.ClearBasketByCustomerId(customerOrder.CustomerId);
+                        Debug.WriteLine(" [x] Received {0}", message);
+                    };
+                    channel.BasicConsume(queue: "orderplaced",
+                                         autoAck: true,
+                                         consumer: consumer);
                 }
 
-
-
-           
-           
-    }
-
-
-
+            }
+        }
     }
 }

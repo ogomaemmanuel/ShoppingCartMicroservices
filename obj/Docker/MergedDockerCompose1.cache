@@ -110,11 +110,28 @@ services:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
       dockerfile: PaymentService/Dockerfile
+    depends_on:
+    - rabbitmq
+    entrypoint: tail -f /dev/null
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: paymentservice
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: paymentservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/PaymentService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
     ports:
-    - 80/tcp
+    - 9009:80/tcp
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
   productcategoryservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
