@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace PaymentService.Services
 {
-    public class OrderPlacedSubscriber
+    public class OrderPlacedSubscriber:IOrderPlacedSubscriber
     {
         private ILipaNaMpesaManager _lipaNaMpesaManager;
 

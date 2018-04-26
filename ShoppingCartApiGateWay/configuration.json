@@ -12,6 +12,10 @@
       ],
       "UpstreamPathTemplate": "/api/Basket",
       "UpstreamHttpMethod": [ "Post", "Get" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
     {
       "DownstreamPathTemplate": "/api/Basket/{customerId?}",
@@ -24,6 +28,10 @@
       ],
       "UpstreamPathTemplate": "/api/Basket/{customerId?}",
       "UpstreamHttpMethod": [ "Get" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     {
@@ -36,7 +44,11 @@
         }
       ],
       "UpstreamPathTemplate": "/api/Basket/{customerId?}/{itemId}",
-      "UpstreamHttpMethod": [ "Put","Delete" ]
+      "UpstreamHttpMethod": [ "Put", "Delete" ],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
 
@@ -79,6 +91,10 @@
       ],
       "UpstreamPathTemplate": "/api/orders",
       "UpstreamHttpMethod": [ "Post", "Get" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     {
@@ -92,6 +108,10 @@
       ],
       "UpstreamPathTemplate": "/api/orders/{id}",
       "UpstreamHttpMethod": [ "Get", "Delete", "Put" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
     {
       "DownstreamPathTemplate": "/api/orders/customer/{id}",
@@ -104,6 +124,10 @@
       ],
       "UpstreamPathTemplate": "/api/orders/customer/{id}",
       "UpstreamHttpMethod": [ "Get" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     {
@@ -117,6 +141,10 @@
       ],
       "UpstreamPathTemplate": "/api/orders/order-items/{id}",
       "UpstreamHttpMethod": [ "Get" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     //payment methods reroute config
@@ -132,6 +160,10 @@
       ],
       "UpstreamPathTemplate": "/api/PaymentMethods",
       "UpstreamHttpMethod": [ "Get", "Post" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     {
@@ -145,6 +177,10 @@
       ],
       "UpstreamPathTemplate": "/api/PaymentMethods/{id}",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     //productcategory services reroutes
@@ -159,6 +195,10 @@
       ],
       "UpstreamPathTemplate": "/api/ProductsCategory",
       "UpstreamHttpMethod": [ "Get", "Post", "PUt" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     {
@@ -172,6 +212,10 @@
       ],
       "UpstreamPathTemplate": "/api/ProductsCategory/{id}",
       "UpstreamHttpMethod": [ "Get", "PUt", "Delete" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     //products reroutes settings
@@ -186,6 +230,10 @@
       ],
       "UpstreamPathTemplate": "/api/products/all",
       "UpstreamHttpMethod": [ "Get" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
     {
       "DownstreamPathTemplate": "/api/products/{id}",
@@ -198,6 +246,10 @@
       ],
       "UpstreamPathTemplate": "/api/products/{id}",
       "UpstreamHttpMethod": [ "Get", "Delete" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     {
@@ -211,6 +263,10 @@
       ],
       "UpstreamPathTemplate": "/api/products",
       "UpstreamHttpMethod": [ "Post" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
 
     //shipment methods reroutes config
@@ -225,6 +281,10 @@
       ],
       "UpstreamPathTemplate": "/api/ShipmentMethods",
       "UpstreamHttpMethod": [ "Get", "Post" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     },
     {
       "DownstreamPathTemplate": "/api/ShipmentMethods/{id}",
@@ -237,6 +297,10 @@
       ],
       "UpstreamPathTemplate": "/api/ShipmentMethods/{id}",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
     }
 
 

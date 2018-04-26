@@ -8,3 +8,4 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\D
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.AssemblyInfo.cs
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.csprojResolveAssemblyReference.cache

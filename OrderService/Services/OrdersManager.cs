@@ -142,7 +142,7 @@ namespace OrderService.Services
                 this._dbContext.BillingInfos.Add(billingInfo);
                 this._dbContext.OrderItems.AddRange(orderItems);
                 this._dbContext.SaveChanges();
-
+                OrderPlacedHandler.PublishOrderPlaced(customerOrder);
                 SendStkPushNotifaction(order);
                 return true;
             }

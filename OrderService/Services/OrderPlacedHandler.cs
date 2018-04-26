@@ -14,8 +14,12 @@ namespace OrderService.Services
     public class OrderPlacedHandler
     {
 
-        public static void publishOrderPlaced(CustomerOrder customerOrder) {
+
+        public static void PublishOrderPlaced(CustomerOrder customerOrder) {
             ConnectionFactory connectionFactory = new ConnectionFactory();
+            connectionFactory.Uri = new Uri("amqp://guest:guest@rabbitmq:5672");
+            connectionFactory.UserName = "guest";
+            connectionFactory.Password = "guest";
             connectionFactory.AutomaticRecoveryEnabled = true;
             connectionFactory.NetworkRecoveryInterval = TimeSpan.FromSeconds(10);
             using (var connection = connectionFactory.CreateConnection())

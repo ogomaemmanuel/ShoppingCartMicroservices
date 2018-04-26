@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ShoppingCartApiGateWay
 {
@@ -23,6 +25,21 @@ namespace ShoppingCartApiGateWay
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+   //         services
+   //.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+   //.AddJwtBearer("TestKey", options =>
+   //{
+   //    options.Authority = Configuration["Jwt:Issuer"];
+   //    options.TokenValidationParameters = new TokenValidationParameters
+   //    {
+   //        ValidateIssuer = true,
+   //        ValidIssuer = Configuration["Jwt:Issuer"],
+   //        ValidateAudience = true,
+   //        ValidAudience = Configuration["Jwt:aud"],
+   //        ValidateLifetime = true
+   //    };
+   //});
             services.AddMvc();
         }
 

@@ -8,3 +8,4 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\obj\Deb
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\obj\Debug\netcoreapp2.0\PaymentMethodService.AssemblyInfo.cs
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\obj\Debug\netcoreapp2.0\PaymentMethodService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\obj\Debug\netcoreapp2.0\PaymentMethodService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService\obj\Debug\netcoreapp2.0\PaymentMethodService.csprojResolveAssemblyReference.cache
