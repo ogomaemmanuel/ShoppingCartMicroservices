@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProductService.Models;
 
 namespace ProductService.Services
 {
@@ -11,5 +12,6 @@ namespace ProductService.Services
         bool Add(T t);
         T GetById(Guid id);
         bool Remove(Guid id);
+        PagedResult<T> GetPaged(PagingParams pagingParams);
     }
 }

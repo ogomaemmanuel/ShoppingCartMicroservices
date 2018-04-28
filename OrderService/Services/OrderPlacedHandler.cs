@@ -25,6 +25,7 @@ namespace OrderService.Services
             using (var connection = connectionFactory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
+               
                 channel.QueueDeclare(queue: "orderplaced",
                                      durable: false,
                                      exclusive: false,

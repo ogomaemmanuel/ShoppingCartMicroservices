@@ -31,6 +31,19 @@ namespace ProductService.Controllers
             var products = this._productsManager.GetAll();
             return new OkObjectResult(products);
         }
+
+        [Route("paged")]
+        [HttpGet(Name ="GetPaged")]
+        [ProducesResponseType(typeof(PagedResult<Product>), 200)]
+        public IActionResult GetAllProductPaged([FromQuery]PagingParams pagingParams)
+        {
+            PagedResult<Product> pagedProducts = this._productsManager.GetPaged(pagingParams);
+            return new OkObjectResult(pagedProducts);
+        }
+
+
+
+
         [Route("{id}")]
         [HttpGet]
         [ProducesResponseType(typeof(Product), 200)]

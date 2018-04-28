@@ -192,5 +192,8 @@ namespace OrderService.Services
             Debug.Write(JsonConvert.SerializeObject(this._stkSettings.Value));
             return shoppingCartApiAccessToken;
         }
+
     }
+
+
 }

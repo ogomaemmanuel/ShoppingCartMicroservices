@@ -54,5 +54,12 @@ namespace ProductService.Services
                 throw;
             }
         }
+
+        public PagedResult<Product> GetPaged(PagingParams pagingParams)
+        {
+            PagedResult<Product> pagedProducts=
+                this._dbContext.Products.GetPaged<Product>(pagingParams.PageNumber, pagingParams.PageSize);
+            return pagedProducts;
+        }
     }
 }
