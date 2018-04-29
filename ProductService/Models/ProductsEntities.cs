@@ -34,6 +34,5 @@ namespace ProductService.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ProductRatingId { get; set; }
-
     }
 }

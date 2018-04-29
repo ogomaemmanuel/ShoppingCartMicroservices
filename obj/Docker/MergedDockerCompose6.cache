@@ -14,7 +14,7 @@ services:
     - rabbitmq
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: basketservice
+    image: mudho/basketservice
     ports:
     - 9001:80/tcp
   manufacturerservice:
@@ -23,10 +23,12 @@ services:
       dockerfile: ManufacturerService/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: manufacturerservice
+    image: mudho/manufacturerservice
     ports:
     - 9002:80/tcp
   nosql.data:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
     image: mongo
   orderservice:
     build:
@@ -36,7 +38,7 @@ services:
     - rabbitmq
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: orderservice
+    image: mudho/orderservice
     ports:
     - 9003:80/tcp
   paymentmethodservice:
@@ -45,7 +47,7 @@ services:
       dockerfile: PaymentMethodService/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: paymentmethodservice
+    image: mudho/paymentmethodservice
     ports:
     - 9004:80/tcp
   paymentservice:
@@ -56,7 +58,7 @@ services:
     - rabbitmq
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: paymentservice
+    image: mudho/paymentservice
     ports:
     - 9009:80/tcp
   productcategoryservice:
@@ -65,7 +67,7 @@ services:
       dockerfile: ProductCategoryService/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: productcategoryservice
+    image: mudho/productcategoryservice
     ports:
     - 9005:80/tcp
   productservice:
@@ -74,7 +76,7 @@ services:
       dockerfile: ProductService/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: productservice
+    image: mudho/productservice
     ports:
     - 9006:80/tcp
   rabbitmq:
@@ -92,7 +94,7 @@ services:
       dockerfile: ShipmentMethodService/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: shipmentmethodservice
+    image: mudho/shipmentmethodservice
     ports:
     - 9007:80/tcp
   shoppingcartapigateway:
@@ -101,7 +103,7 @@ services:
       dockerfile: ShoppingCartApiGateWay/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-    image: shoppingcartapigateway
+    image: mudho/shoppingcartapigateway
     ports:
     - 9008:80/tcp
 version: '3.0'

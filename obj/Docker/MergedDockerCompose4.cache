@@ -1,5 +1,7 @@
 services:
   basket.data:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
     image: redis
     ports:
     - 6379:6379/tcp
@@ -27,6 +29,8 @@ services:
     ports:
     - 9002:80/tcp
   nosql.data:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
     image: mongo
   orderservice:
     build:
@@ -78,6 +82,8 @@ services:
     ports:
     - 9006:80/tcp
   rabbitmq:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
     container_name: rabbit
     hostname: my-rabbit
     image: rabbitmq:3-management

@@ -2,7 +2,7 @@ version: '3'
 
 services:
   basketservice:
-    image: basketservice
+    image: mudho/basketservice
     depends_on:
       - basket.data
       - rabbitmq
@@ -11,14 +11,14 @@ services:
       dockerfile: BasketService/Dockerfile
 
   manufacturerservice:
-    image: manufacturerservice
+    image: mudho/manufacturerservice
     build:
       context: .
       dockerfile: ManufacturerService/Dockerfile
 
 
   orderservice:
-    image: orderservice
+    image: mudho/orderservice
     depends_on:      
       - rabbitmq
     build:
@@ -27,34 +27,34 @@ services:
 
 
   paymentmethodservice:
-    image: paymentmethodservice
+    image: mudho/paymentmethodservice
     build:
       context: .
       dockerfile: PaymentMethodService/Dockerfile
 
 
   productcategoryservice:
-    image: productcategoryservice
+    image: mudho/productcategoryservice
     build:
       context: .
       dockerfile: ProductCategoryService/Dockerfile
 
 
   productservice:
-    image: productservice
+    image: mudho/productservice
     build:
       context: .
       dockerfile: ProductService/Dockerfile
 
 
   shipmentmethodservice:
-    image: shipmentmethodservice
+    image: mudho/shipmentmethodservice
     build:
       context: .
       dockerfile: ShipmentMethodService/Dockerfile
 
   paymentservice:
-    image: paymentservice
+    image: mudho/paymentservice
     depends_on:      
       - rabbitmq
     build:
@@ -62,7 +62,7 @@ services:
       dockerfile: PaymentService/Dockerfile
 
   shoppingcartapigateway:
-    image: shoppingcartapigateway
+    image: mudho/shoppingcartapigateway
     ports:
      - "9008:80"
     build:
@@ -73,18 +73,25 @@ services:
 
   nosql.data:
     image: mongo
-
+    
   basket.data:
-    image: redis
+    image: redis   
+    volumes:
+      - basketdata:/data
       
   rabbitmq:
     hostname: my-rabbit
-    container_name: rabbit
-    image: rabbitmq:3-management
+    container_name: rabbit   
+    image: rabbitmq:3-management    
+    volumes:
+      - messegingdata:/var/lib/rabbitmq
     ports:
       - "5672:5672"
       - "15672:15672"
-     
+
+volumes:
+  basketdata:
+  messegingdata:
     
 
 
@@ -92,4 +99,3 @@ services:
 
 
  
-
