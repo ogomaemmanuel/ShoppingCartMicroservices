@@ -1,98 +1,74 @@
-version: '3.4'
-
-
-
+version: '3'
 
 services:
   basketservice:
-    image: basketservice
+    image: mudho/basketservice
     depends_on:
       - basket.data
-      - rabbitmq
-    build:
-      context: .
-      dockerfile: BasketService/Dockerfile
+      - rabbitmq   
 
   manufacturerservice:
-    image: manufacturerservice
-    build:
-      context: .
-      dockerfile: ManufacturerService/Dockerfile
+    image: mudho/manufacturerservice    
 
 
   orderservice:
-    image: orderservice
+    image: mudho/orderservice
     depends_on:      
-      - rabbitmq
-    build:
-      context: .
-      dockerfile: OrderService/Dockerfile
+      - rabbitmq   
 
 
   paymentmethodservice:
-    image: paymentmethodservice
-    build:
-      context: .
-      dockerfile: PaymentMethodService/Dockerfile
+    image: mudho/paymentmethodservice  
 
 
   productcategoryservice:
-    image: productcategoryservice
-    build:
-      context: .
-      dockerfile: ProductCategoryService/Dockerfile
-
+    image: mudho/productcategoryservice
+    
 
   productservice:
-    image: productservice
-    build:
-      context: .
-      dockerfile: ProductService/Dockerfile
+    image: mudho/productservice    
 
-  paymentservice:
-    image: paymentservice
-    depends_on:      
-      - rabbitmq
-    build:
-      context: .
-      dockerfile: PaymentService/Dockerfile
 
   shipmentmethodservice:
-    image: shipmentmethodservice
-    build:
-      context: .
-      dockerfile: ShipmentMethodService/Dockerfile
-
+    image: mudho/shipmentmethodservice
+    
+  paymentservice:
+    image: mudho/paymentservice
+    depends_on:      
+      - rabbitmq   
 
   shoppingcartapigateway:
-    image: shoppingcartapigateway
-    depends_on:
-      - basketservice
-      - manufacturerservice
-      - orderservice
-      - paymentmethodservice
-      - productcategoryservice
-      - shipmentmethodservice
-      - productservice
-      - paymentservice
-    build:
-      context: .
-      dockerfile: ShoppingCartApiGateWay/Dockerfile
+    image: mudho/shoppingcartapigateway
+    ports:
+     - "80:80"    
 
-  mysql.data:
-    image: mysql-server
+ 
 
   nosql.data:
     image: mongo
-  
+    
   basket.data:
-    image: redis
-    ports:
-      - "6379:6379"
+    image: redis   
+    volumes:
+      - basketdata:/data
       
   rabbitmq:
-    image: rabbitmq:3-management
+    hostname: my-rabbit
+    container_name: rabbit   
+    image: rabbitmq:3-management    
+    volumes:
+      - messegingdata:/var/lib/rabbitmq
     ports:
       - "5672:5672"
+      - "15672:15672"
+
+volumes:
+  basketdata:
+  messegingdata:
+    
 
 
+  
+
+
+ 
