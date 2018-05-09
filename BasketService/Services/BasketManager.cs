@@ -13,7 +13,6 @@ namespace BasketService.Services
         private readonly IDistributedCache _distributedCache;
 
         public BasketManager(IDistributedCache distributedCache) {
-
             _distributedCache = distributedCache;
         }
 

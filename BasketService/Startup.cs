@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using BasketService.Conventions;
 using BasketService.Models;
 using BasketService.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BasketService
 {
@@ -35,6 +37,20 @@ namespace BasketService
             services.AddMvc(options => {
                 options.Conventions.Add(new ComplexTypeConvention());
             });
+            services
+     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     .AddJwtBearer(options =>
+     {
+         options.Authority = Configuration["Jwt:Issuer"];
+         options.TokenValidationParameters = new TokenValidationParameters
+         {
+             ValidateIssuer = true,
+             ValidIssuer = Configuration["Jwt:Issuer"],
+             ValidateAudience = true,
+             ValidAudience = Configuration["Jwt:aud"],
+             ValidateLifetime = true
+         };
+     });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +67,7 @@ namespace BasketService
 
             });
             app.UseRabbitListener();
+            app.UseAuthentication();
             app.UseMvc();
         }
     }
