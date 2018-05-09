@@ -44,7 +44,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/Basket/{customerId?}/{itemId}",
-      "UpstreamHttpMethod": [ "Put", "Delete" ],
+      "UpstreamHttpMethod": [ "Put", "Delete" ]
       //"AuthenticationOptions": {
       //  "AuthenticationProviderKey": "TestKey",
       //  "AllowedScopes": []
@@ -159,11 +159,12 @@
         }
       ],
       "UpstreamPathTemplate": "/api/PaymentMethods",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      "UpstreamHttpMethod": [ "Get", "Post" ],
       //"AuthenticationOptions": {
       //  "AuthenticationProviderKey": "TestKey",
       //  "AllowedScopes": []
       //}
+      "Key": "paymentmethods"
     },
 
     {
@@ -176,11 +177,12 @@
         }
       ],
       "UpstreamPathTemplate": "/api/PaymentMethods/{id}",
-      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
       //"AuthenticationOptions": {
       //  "AuthenticationProviderKey": "TestKey",
       //  "AllowedScopes": []
       //}
+      
     },
 
     //productcategory services reroutes
@@ -280,11 +282,12 @@
         }
       ],
       "UpstreamPathTemplate": "/api/ShipmentMethods",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      "UpstreamHttpMethod": [ "Get", "Post" ],
       //"AuthenticationOptions": {
       //  "AuthenticationProviderKey": "TestKey",
       //  "AllowedScopes": []
       //}
+      "Key": "shippingmethods"
     },
     {
       "DownstreamPathTemplate": "/api/ShipmentMethods/{id}",
@@ -304,6 +307,15 @@
     }
 
 
+  ],
+  "Aggregates": [
+    {
+      "ReRouteKeys": [
+        "paymentmethods",
+        "shippingmethods"
+      ],
+      "UpstreamPathTemplate": "/CheckoutOption"
+    }
   ],
   "GlobalConfiguration": {}
 }

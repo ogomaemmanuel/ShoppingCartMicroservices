@@ -53,7 +53,7 @@ namespace ShoppingCartApiGateWay
             app.UseCors(builder =>
             {
 
-                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().Build();
+                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials().Build();
 
             });
             app.UseMvc();
