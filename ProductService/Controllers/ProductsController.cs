@@ -12,11 +12,9 @@ namespace ProductService.Controllers
 {
     [Produces("application/json")]
     [Route("api/products")]
-    //[Authorize]
+    [Authorize]
     public class ProductsController : Controller
     {
-
-
         private IRepository<Product> _productsManager;
         public ProductsController(IRepository<Product> productsManager)
         {

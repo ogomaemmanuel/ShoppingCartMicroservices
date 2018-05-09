@@ -13,6 +13,7 @@ namespace BasketService.Controllers
 {
     [Produces("application/json")]
     [Route("api/Basket")]
+    [Authorize]
     public class BasketController : Controller
     {
         private IRepository<BasketItem> _basketManager;
