@@ -54,8 +54,8 @@ namespace PaymentService.Models
         [JsonProperty("Name")]
         public string Name { get; set; }
 
-        [JsonProperty("Value", NullValueHandling = NullValueHandling.Ignore)]
-        public string Value { get; set; }
+        [JsonProperty("Value")]
+        public object Value { get; set; }
     }
 
     public partial class LinaMpesaOnlineTransactionResponse

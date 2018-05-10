@@ -24,7 +24,7 @@ namespace PaymentService.Models
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    modelBuilder.Entity<LipaNaMpesaPayment>()
-        //   .HasKey(c => new { c.CheckoutRequestId,c.MerchantRequestId});
+        //   .HasKey(c => new { c.CheckoutRequestId, c.MerchantRequestId });
         //}
     }
 }

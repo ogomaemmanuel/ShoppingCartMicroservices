@@ -24,12 +24,13 @@ namespace PaymentService.Services
 
         public void MakeMpesaPaymentRequest(CustomerOrder customerOrder)
         {
-            using (var context = this.shoppingCartDbContext()) {
+            using (var context = this.shoppingCartDbContext())
+            {
                 LipaNaMpesaPayment lipaNaMpesaPaymentRequest = JsonConvert.DeserializeObject<LipaNaMpesaPayment>(SendStkPushNotifaction());
                 context.LipaNaMpesaPayments.Add(lipaNaMpesaPaymentRequest);
                 context.SaveChanges();
             }
-                          
+
         }
 
         private void GetMpesaAuthenticationToken() { }
@@ -41,20 +42,20 @@ namespace PaymentService.Services
             {
                 using (var context = this.shoppingCartDbContext())
                 {
-                    var lipaNaMpesaPayment= context.
+                    var lipaNaMpesaPayment = context.
                     LipaNaMpesaPayments
-                    .Find(new[]{linaMpesaOnlineTransactionResponse.Body.StkCallback.CheckoutRequestId,
-                     linaMpesaOnlineTransactionResponse.Body.StkCallback.MerchantRequestId
-                    });
-                lipaNaMpesaPayment.MerchantRequestId = linaMpesaOnlineTransactionResponse.Body.StkCallback.MerchantRequestId;
-                 lipaNaMpesaPayment.ResultDesc = linaMpesaOnlineTransactionResponse.Body.StkCallback.ResultDesc;
-                lipaNaMpesaPayment.CheckoutRequestId = linaMpesaOnlineTransactionResponse.Body.StkCallback.CheckoutRequestId;
-                lipaNaMpesaPayment.Amount = Convert.ToDecimal(linaMpesaOnlineTransactionResponse.Body.StkCallback.CallbackMetadata.Item[0].Value);
-                lipaNaMpesaPayment.TransactionDate = linaMpesaOnlineTransactionResponse.Body.StkCallback.CallbackMetadata.Item[3].Value;
-                lipaNaMpesaPayment.PhoneNumber = linaMpesaOnlineTransactionResponse.Body.StkCallback.CallbackMetadata.Item[4].Value;
-                lipaNaMpesaPayment.MpesaReceiptNumber = linaMpesaOnlineTransactionResponse.Body.StkCallback.CallbackMetadata.Item[4].Value;
+                    .Find(linaMpesaOnlineTransactionResponse.Body.StkCallback.MerchantRequestId);
+                    lipaNaMpesaPayment.MerchantRequestId = linaMpesaOnlineTransactionResponse.Body.StkCallback.MerchantRequestId;
+                    lipaNaMpesaPayment.ResultDesc = linaMpesaOnlineTransactionResponse.Body.StkCallback.ResultDesc;
+                    lipaNaMpesaPayment.CheckoutRequestId = linaMpesaOnlineTransactionResponse.Body.StkCallback.CheckoutRequestId;
+                    if (linaMpesaOnlineTransactionResponse.Body.StkCallback.CallbackMetadata != null)
+                    {
+                        lipaNaMpesaPayment.Amount = Convert.ToDecimal(linaMpesaOnlineTransactionResponse.Body.StkCallback.CallbackMetadata.Item[0].Value);
+                        lipaNaMpesaPayment.TransactionDate = linaMpesaOnlineTransactionResponse.Body.StkCallback.CallbackMetadata.Item[3].Value.ToString();
+                        lipaNaMpesaPayment.PhoneNumber = linaMpesaOnlineTransactionResponse.Body.StkCallback.CallbackMetadata.Item[4].Value.ToString();
+                        lipaNaMpesaPayment.MpesaReceiptNumber = linaMpesaOnlineTransactionResponse.Body.StkCallback.CallbackMetadata.Item[4].Value.ToString();
+                    }
 
-                
 
                     context.LipaNaMpesaPayments.
                     Update(lipaNaMpesaPayment);
@@ -66,7 +67,7 @@ namespace PaymentService.Services
                         ResultDesc = "The service was accepted successfully",
                     };
                 };
-                    
+
             }
             catch (Exception)
             {
@@ -77,7 +78,7 @@ namespace PaymentService.Services
                     ResultDesc = "The service was not accepted successfully",
                 };
             }
-          
+
         }
 
         private string SendStkPushNotifaction()

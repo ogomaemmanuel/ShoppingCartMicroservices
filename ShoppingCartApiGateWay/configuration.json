@@ -177,12 +177,12 @@
         }
       ],
       "UpstreamPathTemplate": "/api/PaymentMethods/{id}",
-      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
       //"AuthenticationOptions": {
       //  "AuthenticationProviderKey": "TestKey",
       //  "AllowedScopes": []
       //}
-      
+
     },
 
     //productcategory services reroutes
@@ -300,6 +300,23 @@
       ],
       "UpstreamPathTemplate": "/api/ShipmentMethods/{id}",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/MpesaPayment",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "paymentservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/MpesaPayment",
+      "UpstreamHttpMethod": [ "Post" ]
       //"AuthenticationOptions": {
       //  "AuthenticationProviderKey": "TestKey",
       //  "AllowedScopes": []

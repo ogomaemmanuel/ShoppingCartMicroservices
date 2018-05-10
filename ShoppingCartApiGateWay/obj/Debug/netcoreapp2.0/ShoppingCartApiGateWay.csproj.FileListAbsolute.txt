@@ -3,9 +3,9 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\bin\D
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\bin\Debug\netcoreapp2.0\ShoppingCartApiGateWay.runtimeconfig.dev.json
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\bin\Debug\netcoreapp2.0\ShoppingCartApiGateWay.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\bin\Debug\netcoreapp2.0\ShoppingCartApiGateWay.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\obj\Debug\netcoreapp2.0\ShoppingCartApiGateWay.csprojResolveAssemblyReference.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\obj\Debug\netcoreapp2.0\ShoppingCartApiGateWay.csproj.CoreCompileInputs.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\obj\Debug\netcoreapp2.0\ShoppingCartApiGateWay.AssemblyInfoInputs.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\obj\Debug\netcoreapp2.0\ShoppingCartApiGateWay.AssemblyInfo.cs
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\obj\Debug\netcoreapp2.0\ShoppingCartApiGateWay.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\obj\Debug\netcoreapp2.0\ShoppingCartApiGateWay.pdb
-C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay\obj\Debug\netcoreapp2.0\ShoppingCartApiGateWay.csprojResolveAssemblyReference.cache

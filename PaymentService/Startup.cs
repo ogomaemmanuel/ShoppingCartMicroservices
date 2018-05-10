@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PaymentService.Conventions;
 using PaymentService.Models;
 using PaymentService.Services;
 namespace PaymentService
@@ -38,7 +39,10 @@ namespace PaymentService
             services.AddTransient<ILipaNaMpesaManager, LipaNaMpesaManager>();
             services.Configure<StkSetting>(options => Configuration.GetSection("StkSetting").Bind(options));
             services.Configure<ShoppingCartStkPushKey>(options => Configuration.GetSection("ShoppingCartStkPushKey").Bind(options));
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                options.Conventions.Add(new ComplexTypeConvention());
+            });
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

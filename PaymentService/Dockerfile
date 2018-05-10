@@ -28,7 +28,7 @@ FROM microsoft/aspnetcore-build:2.0.5-2.1.4 AS build
 WORKDIR /src
 COPY . .
 RUN dotnet restore -nowarn:msb3202,nu1503
-WORKDIR /src/ProductService
+WORKDIR /src/PaymentService
 RUN dotnet build --no-restore -c Release -o /app
 
 FROM build AS publish
@@ -37,4 +37,4 @@ RUN dotnet publish --no-restore -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "ProductService.dll"]
+ENTRYPOINT ["dotnet", "PaymentService.dll"]

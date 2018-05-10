@@ -19,7 +19,7 @@ namespace PaymentService.Controllers
         {
             this.lipaNaMpesaManager = lipaNaMpesaManager;
         }
-
+        [HttpPost]
         public IActionResult ReceivePayment(LinaMpesaOnlineTransactionResponse
             linaMpesaOnlineTransactionResponse) {
          var result=   this.lipaNaMpesaManager.Save(linaMpesaOnlineTransactionResponse);
