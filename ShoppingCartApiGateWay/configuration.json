@@ -164,7 +164,7 @@
       //  "AuthenticationProviderKey": "TestKey",
       //  "AllowedScopes": []
       //}
-      "Key": "paymentmethods"
+      "Key": "paymentMethods"
     },
 
     {
@@ -287,7 +287,7 @@
       //  "AuthenticationProviderKey": "TestKey",
       //  "AllowedScopes": []
       //}
-      "Key": "shippingmethods"
+      "Key": "shipmentMethods"
     },
     {
       "DownstreamPathTemplate": "/api/ShipmentMethods/{id}",
@@ -311,8 +311,8 @@
   "Aggregates": [
     {
       "ReRouteKeys": [
-        "paymentmethods",
-        "shippingmethods"
+        "paymentMethods",
+        "shipmentMethods"
       ],
       "UpstreamPathTemplate": "/CheckoutOption"
     }
