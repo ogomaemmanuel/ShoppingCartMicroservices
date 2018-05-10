@@ -8,7 +8,7 @@ namespace PaymentService.Models
 {
     public class LipaNaMpesaPayment
     {
-        
+        [Key]
         public Guid LipaNaMpesaPaymentId { get; set; }
         public Guid OrderId { get; set; }
         public string MerchantRequestId { get; set; }

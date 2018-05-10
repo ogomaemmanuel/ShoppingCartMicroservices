@@ -25,18 +25,27 @@ namespace OrderService.Services
             using (var connection = connectionFactory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-               
-                channel.QueueDeclare(queue: "orderplaced",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
-
+                channel.ExchangeDeclare(exchange: "orders", type: "fanout");
+                channel.QueueDeclare(queue: "basketservice",
+                     durable: true,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+                channel.QueueDeclare(queue: "paymentservice",
+                     durable: true,
+                     exclusive: false,
+                     autoDelete: false,
+                     arguments: null);
+                channel.QueueBind("basketservice", "orders", "");
+                channel.QueueBind("paymentservice", "orders","");
                 var message = JsonConvert.SerializeObject(customerOrder);
                 var body = Encoding.UTF8.GetBytes(message);
+                var properties = channel.CreateBasicProperties();
+                properties.Persistent = true;
 
-                channel.BasicPublish(exchange: "",
-                                     routingKey: "orderplaced",
+
+                channel.BasicPublish(exchange: "orders",
+                                     routingKey: "",
                                      basicProperties: null,
                                      body: body);
                 Debug.WriteLine(" [x] Sent {0}", message);

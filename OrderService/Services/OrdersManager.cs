@@ -143,7 +143,7 @@ namespace OrderService.Services
                 this._dbContext.OrderItems.AddRange(orderItems);
                 this._dbContext.SaveChanges();
                 OrderPlacedHandler.PublishOrderPlaced(customerOrder);
-                SendStkPushNotifaction(order);
+                //SendStkPushNotifaction(order);
                 return true;
             }
             catch (Exception)

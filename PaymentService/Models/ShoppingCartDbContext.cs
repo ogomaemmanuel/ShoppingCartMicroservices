@@ -12,7 +12,7 @@ namespace PaymentService.Models
             base(options)
         {
 
-            Database.Migrate();
+            Database.EnsureCreated();
         }
         public DbSet<LipaNaMpesaPayment> LipaNaMpesaPayments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -21,10 +21,10 @@ namespace PaymentService.Models
 
             base.OnConfiguring(optionsBuilder);
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<LipaNaMpesaPayment>()
-           .HasKey(c => new { c.CheckoutRequestId,c.MerchantRequestId});
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<LipaNaMpesaPayment>()
+        //   .HasKey(c => new { c.CheckoutRequestId,c.MerchantRequestId});
+        //}
     }
 }

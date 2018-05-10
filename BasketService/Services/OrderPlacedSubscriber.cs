@@ -37,32 +37,32 @@ namespace BasketService.Services
             // connectionFactory.NetworkRecoveryInterval = TimeSpan.FromSeconds(10);
 
 
-            using (IConnection connection = connectionFactory.CreateConnection())
+            IConnection connection = connectionFactory.CreateConnection();
+            var channel = connection.CreateModel();
+            channel.QueueDeclare(queue: "basketservice",
+                durable: true,
+           exclusive: false,
+           autoDelete: false,
+           arguments: null);
+            channel.ExchangeDeclare(exchange: "orders", type: "fanout");
+
+            channel.QueueBind(queue: "basketservice",
+                      exchange: "orders",
+                      routingKey: "");
+            Debug.WriteLine(" [*] Waiting for orders placed BasketSevice");
+            channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+            var consumer = new EventingBasicConsumer(channel);
+            consumer.Received += (model, ea) =>
             {
-
-                using (var channel = connection.CreateModel())
-                {
-                    channel.QueueDeclare(queue: "orderplaced",
-                                 durable: false,
-                                 exclusive: false,
-                                 autoDelete: false,
-                                 arguments: null);
-
-                    var consumer = new EventingBasicConsumer(channel);
-                    consumer.Received += (model, ea) =>
-                    {
-                        var body = ea.Body;
-                        var message = Encoding.UTF8.GetString(body);
-                        CustomerOrder customerOrder = JsonConvert.DeserializeObject<CustomerOrder>(message);
-                        _basketManager.ClearBasketByCustomerId(customerOrder.CustomerId);
-                        Debug.WriteLine(" [x] Received {0}", message);
-                    };
-                    channel.BasicConsume(queue: "orderplaced",
-                                         autoAck: true,
-                                         consumer: consumer);
-                }
-
-            }
+                var body = ea.Body;
+                var message = Encoding.UTF8.GetString(body);
+                CustomerOrder customerOrder = JsonConvert.DeserializeObject<CustomerOrder>(message);
+                _basketManager.ClearBasketByCustomerId(customerOrder.CustomerId);
+                Debug.WriteLine("BasketSevice [x] Received {0}", message);
+            };
+            channel.BasicConsume(queue: "basketservice",
+                                 autoAck: true,
+                                 consumer: consumer);
         }
     }
 }

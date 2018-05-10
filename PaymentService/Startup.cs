@@ -31,7 +31,7 @@ namespace PaymentService
             services.AddSingleton<Func<ShoppingCartDbContext>>(() =>
             {
                 var optionsBuilder = new DbContextOptionsBuilder<ShoppingCartDbContext>();
-                optionsBuilder.UseSqlServer(Configuration.GetConnectionString("ShoppingCartDbConnectionString"));
+                optionsBuilder.UseSqlite(Configuration.GetConnectionString("ShoppingCartDbConnectionString"));
                 return new ShoppingCartDbContext(optionsBuilder.Options);
             });
             services.AddSingleton<IOrderPlacedSubscriber, OrderPlacedSubscriber>();
@@ -46,39 +46,9 @@ namespace PaymentService
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
-            app.UseRabbitListener();
+            }            
             app.UseMvc();
             
         }
-    }
-
-    public static class ApplicationBuilderExtentions
-    {
-        public static IOrderPlacedSubscriber Listener { get; set; }
-
-        public static IApplicationBuilder UseRabbitListener(this IApplicationBuilder app)
-        {
-            Listener = app.ApplicationServices.GetRequiredService<IOrderPlacedSubscriber>();
-
-            var life = app.ApplicationServices.GetService<IApplicationLifetime>();
-
-            life.ApplicationStarted.Register(OnStarted);
-
-            //press Ctrl+C to reproduce if your app runs in Kestrel as a console app
-            life.ApplicationStopping.Register(OnStopping);
-
-            return app;
-        }
-
-        private static void OnStarted()
-        {
-            Listener.Handle();
-        }
-
-        private static void OnStopping()
-        {
-            // Listener.Deregister();
-        }
-    }
+    }   
 }
