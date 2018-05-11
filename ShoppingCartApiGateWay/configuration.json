@@ -33,6 +33,17 @@
       //  "AllowedScopes": []
       //}
     },
+    {
+      "DownstreamPathTemplate": "/NotificationHub",
+      "UpstreamPathTemplate": "/NotificationHub",
+      "DownstreamScheme": "ws",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basketservice",
+          "Port": 80
+        }
+      ]
+    },
 
     {
       "DownstreamPathTemplate": "/api/Basket/{customerId?}/{itemId}",
@@ -334,5 +345,11 @@
       "UpstreamPathTemplate": "/CheckoutOption"
     }
   ],
-  "GlobalConfiguration": {}
+  "GlobalConfiguration": {
+    "QoSOptions": {
+      "ExceptionsAllowedBeforeBreaking": 2,
+      "DurationOfBreak": 5000,
+      "TimeoutValue": 2000
+    }
+  }
 }

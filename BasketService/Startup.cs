@@ -8,11 +8,14 @@ using BasketService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+
+
 
 namespace BasketService
 {
@@ -34,6 +37,7 @@ namespace BasketService
                 options.Configuration = Configuration["Redis:Url"];
             });
             services.AddSingleton<IOrderPlacedSubsriber,OrderPlacedSubscriber>();
+            services.AddSignalR();
             services.AddMvc(options => {
                 options.Conventions.Add(new ComplexTypeConvention());
             });
@@ -65,7 +69,14 @@ namespace BasketService
 
                 builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().Build();
 
-            });            
+            });
+            app.UseSignalR(routes =>
+
+            {
+
+                routes.MapHub<NotificationHub>("NotificationHub");
+
+            });
             app.UseAuthentication();
             app.UseMvc();
         }

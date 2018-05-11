@@ -23,6 +23,11 @@ namespace OrderService.Models
         public string CustomerId { get; set; }
         [NotMapped]
         public decimal OrderTotal { get; set; }
+
+
+
+
+
     }
 
     public class OrderItem
@@ -35,7 +40,12 @@ namespace OrderService.Models
         public decimal Total { get; set; }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid OrderItemId { get; set; }
+        public Guid OrderItemId { get; set; }        
+        public string ProductName { get; set; }        
+        public string ProductMediaFile { get; set; }       
+        public string ProductSku { get; set; }        
+        public string ProductCategory { get; set; } 
+        public decimal ShopperReview { get; set; }       
     }
     public class BillingInfo
     {

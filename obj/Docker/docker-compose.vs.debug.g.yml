@@ -1,8 +1,10 @@
-version: '3'
+version: '3.4'
 
 services:
   basketservice:
     image: mudho/basketservice:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
@@ -20,6 +22,8 @@ services:
 
   manufacturerservice:
     image: mudho/manufacturerservice:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
@@ -38,6 +42,8 @@ services:
 
   orderservice:
     image: mudho/orderservice:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
@@ -56,6 +62,8 @@ services:
 
   paymentmethodservice:
     image: mudho/paymentmethodservice:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
@@ -74,6 +82,8 @@ services:
 
   paymentservice:
     image: mudho/paymentservice:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
@@ -92,6 +102,8 @@ services:
 
   productcategoryservice:
     image: mudho/productcategoryservice:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
@@ -110,6 +122,8 @@ services:
 
   productservice:
     image: mudho/productservice:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
@@ -128,6 +142,8 @@ services:
 
   shipmentmethodservice:
     image: mudho/shipmentmethodservice:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
@@ -146,6 +162,8 @@ services:
 
   shoppingcartapigateway:
     image: mudho/shoppingcartapigateway:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages

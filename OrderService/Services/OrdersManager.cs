@@ -67,33 +67,9 @@ namespace OrderService.Services
             }
         }
 
-        internal List<Product> getOrdersItems(Guid id)
+        internal List<OrderItem> getOrdersItems(Guid id)
         {
-            var orderItemsByOrderId = (from orderitems in this._dbContext.OrderItems
-                                       join products in this._dbContext.Products
-                                       on orderitems.ProductId equals products.ProductId
-                                       where orderitems.OrderId == id
-                                       select new
-                                       {
-                                           ProductId = products.ProductId,
-                                           ProductCategory = products.ProductCategory,
-                                           ProductManufacturer = products.ProductManufacturer,
-                                           Price = products.Price,
-                                           ProductMediaFile = products.ProductMediaFile,
-                                           ProductName = products.ProductName,
-                                           ProductSku = products.ProductSku,
-                                           ShopperReview = products.ShopperReview
-                                       }).Select(product => new Product
-                                       {
-                                           Price = product.Price,
-                                           ProductId = product.ProductId,
-                                           ProductMediaFile = product.ProductMediaFile,
-                                           ProductCategory = product.ProductCategory,
-                                           ProductName = product.ProductName,
-                                           ProductSku = product.ProductSku,
-                                           ProductManufacturer = product.ProductManufacturer,
-                                           ShopperReview = product.ShopperReview
-                                       }).ToList();
+            var orderItemsByOrderId = this._dbContext.OrderItems.Where(x => x.OrderId == id).Select(x => x).ToList();
             return orderItemsByOrderId;
         }
 
@@ -133,17 +109,20 @@ namespace OrderService.Services
                         OrderId = order.OrderId,
                         Price = orderitem.Price,
                         ProductId = orderitem.ProductId,
-                        Qty = orderitem.Qty,
-                        Total = orderitem.Total,
+                        Qty = orderitem.Quantity,
+                        Total = orderitem.Quantity*orderitem.Price,
+                        ProductName= orderitem.ProductName,
+                        ProductMediaFile=orderitem.ProductMediaFile,
+                        ProductCategory=orderitem.ProductCategory,
+                        ProductSku=orderitem.ProductSku,
+                        ShopperReview=orderitem.ShopperReview,
                     });
-
                 }
                 this._dbContext.Orders.Add(order);
                 this._dbContext.BillingInfos.Add(billingInfo);
                 this._dbContext.OrderItems.AddRange(orderItems);
                 this._dbContext.SaveChanges();
-                OrderPlacedHandler.PublishOrderPlaced(customerOrder);
-                //SendStkPushNotifaction(order);
+                OrderPlacedHandler.PublishOrderPlaced(customerOrder);                
                 return true;
             }
             catch (Exception)
@@ -172,27 +151,6 @@ namespace OrderService.Services
                                       }).ToList();
             return customersOrderList;
         }
-        private void SendStkPushNotifaction(Order order)
-        {
-            ShoppingCartApiAccessToken shoppingCartApiAccessToken = GetAuthToken();
-            var result = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-                .WithOAuthBearerToken(shoppingCartApiAccessToken.AccessToken)
-                .PostJsonAsync(this._stkSettings.Value)
-                .ReceiveString().Result;
-        }
-
-
-        private ShoppingCartApiAccessToken GetAuthToken()
-        {
-
-            var result = _shoppingCartStkPushKey.Value.Url
-                .WithBasicAuth(_shoppingCartStkPushKey.Value.ConsumerKey, _shoppingCartStkPushKey.Value.ConsumerSecret)
-                .GetStringAsync().Result;
-            ShoppingCartApiAccessToken shoppingCartApiAccessToken = JsonConvert.DeserializeObject<ShoppingCartApiAccessToken>(result);
-            Debug.Write(JsonConvert.SerializeObject(this._stkSettings.Value));
-            return shoppingCartApiAccessToken;
-        }
-
     }
 
 

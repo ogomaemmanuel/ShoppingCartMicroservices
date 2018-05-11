@@ -82,9 +82,19 @@ namespace OrderService.Migrations
 
                     b.Property<decimal>("Price");
 
+                    b.Property<string>("ProductCategory");
+
                     b.Property<Guid>("ProductId");
 
+                    b.Property<string>("ProductMediaFile");
+
+                    b.Property<string>("ProductName");
+
+                    b.Property<string>("ProductSku");
+
                     b.Property<int>("Qty");
+
+                    b.Property<decimal>("ShopperReview");
 
                     b.Property<decimal>("Total");
 

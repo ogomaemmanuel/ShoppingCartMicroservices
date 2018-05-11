@@ -2,7 +2,8 @@ services:
   basket.data:
     image: redis
     ports:
-    - 6379:6379/tcp
+    - published: 6379
+      target: 6379
     volumes:
     - basketdata:/data:rw
   basketservice:
@@ -16,7 +17,8 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: mudho/basketservice
     ports:
-    - 9001:80/tcp
+    - published: 9001
+      target: 80
   manufacturerservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -25,7 +27,8 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: mudho/manufacturerservice
     ports:
-    - 9002:80/tcp
+    - published: 9002
+      target: 80
   nosql.data:
     image: mongo
   orderservice:
@@ -38,7 +41,8 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: mudho/orderservice
     ports:
-    - 9003:80/tcp
+    - published: 9003
+      target: 80
   paymentmethodservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -47,18 +51,18 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: mudho/paymentmethodservice
     ports:
-    - 9004:80/tcp
+    - published: 9004
+      target: 80
   paymentservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
       dockerfile: PaymentService/Dockerfile
-    depends_on:
-    - rabbitmq
     environment:
       ASPNETCORE_ENVIRONMENT: Development
     image: mudho/paymentservice
     ports:
-    - 9009:80/tcp
+    - published: 9009
+      target: 80
   productcategoryservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -67,7 +71,8 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: mudho/productcategoryservice
     ports:
-    - 9005:80/tcp
+    - published: 9005
+      target: 80
   productservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -76,14 +81,17 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: mudho/productservice
     ports:
-    - 9006:80/tcp
+    - published: 9006
+      target: 80
   rabbitmq:
     container_name: rabbit
     hostname: my-rabbit
     image: rabbitmq:3-management
     ports:
-    - 5672:5672/tcp
-    - 15672:15672/tcp
+    - published: 5672
+      target: 5672
+    - published: 15672
+      target: 15672
     volumes:
     - messegingdata:/var/lib/rabbitmq:rw
   shipmentmethodservice:
@@ -94,7 +102,8 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: mudho/shipmentmethodservice
     ports:
-    - 9007:80/tcp
+    - published: 9007
+      target: 80
   shoppingcartapigateway:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartVersion2
@@ -103,8 +112,9 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
     image: mudho/shoppingcartapigateway
     ports:
-    - 9008:80/tcp
-version: '3.0'
+    - published: 9008
+      target: 80
+version: '3.4'
 volumes:
   basketdata: {}
   messegingdata: {}
