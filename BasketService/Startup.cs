@@ -74,7 +74,7 @@ namespace BasketService
 
             {
 
-                routes.MapHub<NotificationHub>("NotificationHub");
+                routes.MapHub<NotificationHub>("/NotificationHub");
 
             });
             app.UseAuthentication();

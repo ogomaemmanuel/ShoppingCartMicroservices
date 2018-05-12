@@ -33,16 +33,41 @@
       //  "AllowedScopes": []
       //}
     },
+    //{
+    //  "DownstreamPathTemplate": "/NotificationHub",
+    //  "UpstreamPathTemplate": "/NotificationHub",
+    //  "DownstreamScheme": "ws",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "basketservice",
+    //      "Port": 80
+    //    }
+    //  ]
+    //},
     {
-      "DownstreamPathTemplate": "/NotificationHub",
-      "UpstreamPathTemplate": "/NotificationHub",
-      "DownstreamScheme": "ws",
+      "DownstreamPathTemplate": "/NotificationHub/negotiate",
+      "UpstreamPathTemplate": "/NotificationHub/negotiate",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "basketservice",
           "Port": 80
         }
-      ]
+      ],
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/NotificationHub",
+      "UpstreamPathTemplate": "/NotificationHub",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basketservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamHttpMethod": [ "Get","Post" ]
     },
 
     {

@@ -14,12 +14,13 @@ namespace BasketService.Services
 
         {
 
-            Clients.All.InvokeAsync("sendToAll", name, message);
+            Clients.All.SendAsync("sendToAll", name, message);
 
         }
 
         public override Task OnConnectedAsync()
         {
+            Clients.All.SendAsync("sendToAll", "Emmanuel", "Ogoma");
             return base.OnConnectedAsync();
         }
         public override Task OnDisconnectedAsync(Exception exception)
