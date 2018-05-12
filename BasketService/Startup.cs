@@ -72,11 +72,11 @@ namespace BasketService
             });
             app.UseSignalR(routes =>
 
-            {
+           {
 
-                routes.MapHub<NotificationHub>("/NotificationHub");
+               routes.MapHub<NotificationHub>("/NotificationHub");
 
-            });
+           });
             app.UseAuthentication();
             app.UseMvc();
         }
