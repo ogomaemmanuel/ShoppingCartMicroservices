@@ -49,6 +49,7 @@ namespace ProductService
             {
                 options.Conventions.Add(new ComplexTypeConvention());
             });
+            services.AddCors();
 
             services
      .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -98,7 +99,7 @@ namespace ProductService
             app.UseCors(builder =>
             {
 
-                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().Build();
+                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().DisallowCredentials().Build();
 
             });
 

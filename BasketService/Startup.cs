@@ -38,9 +38,20 @@ namespace BasketService
             });
             services.AddSingleton<IOrderPlacedSubsriber,OrderPlacedSubscriber>();
             services.AddSignalR();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                    .WithOrigins("http://localhost:8100")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    );
+            }); 
             services.AddMvc(options => {
                 options.Conventions.Add(new ComplexTypeConvention());
             });
+            
             services
      .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
      .AddJwtBearer(options =>
@@ -64,12 +75,7 @@ namespace BasketService
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(builder =>
-            {
-
-                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().Build();
-
-            });
+            
             app.UseSignalR(routes =>
 
            {
@@ -77,6 +83,7 @@ namespace BasketService
                routes.MapHub<NotificationHub>("/NotificationHub");
 
            });
+            app.UseCors("CorsPolicy");
             app.UseAuthentication();
             app.UseMvc();
         }

@@ -12,8 +12,8 @@ namespace BasketService.Services
     public class BasketManager : IRepository<BasketItem>
     {
         private readonly IDistributedCache _distributedCache;
-        private readonly IHubContext<NotificationHub> _notificationHubContext;
-        public BasketManager(IDistributedCache distributedCache, IHubContext<NotificationHub> notificationHubContext) {
+        private readonly IHubContext<NotificationHub, INotificationHubClient> _notificationHubContext;
+        public BasketManager(IDistributedCache distributedCache, IHubContext<NotificationHub, INotificationHubClient> notificationHubContext) {
             _distributedCache = distributedCache;
             _notificationHubContext = notificationHubContext;
         }
@@ -25,8 +25,8 @@ namespace BasketService.Services
                var x= _notificationHubContext.Clients.All;
                 var customerBasketItems = this.GetByCustomerId(customerId) ?? new List<BasketItem>();
                 customerBasketItems.Add(t);
-                _distributedCache.SetString(customerId, JsonConvert.SerializeObject(customerBasketItems));
-                _notificationHubContext.Clients.All.SendAsync("sendToAll", "Emmanuel", customerBasketItems.Count().ToString());
+                _distributedCache.SetString(customerId, JsonConvert.SerializeObject(customerBasketItems));                
+                _notificationHubContext.Clients.Group(customerId).SendToAll("BasketChanged", customerBasketItems.Count().ToString());
                 return true;
             }
             catch (Exception ex)
@@ -39,8 +39,8 @@ namespace BasketService.Services
         {
             try
             {
-                this._distributedCache.Remove(id);
-                _notificationHubContext.Clients.All.SendAsync("sendToAll", "Emmanuel", "0");
+                this._distributedCache.Remove(id);               
+                _notificationHubContext.Clients.Group(id).SendToAll("BasketChanged", "0");
                 return true;
             }
             catch (Exception ex)
@@ -70,7 +70,7 @@ namespace BasketService.Services
            var customerBasketItems = this.GetByCustomerId(customerId) ?? new List<BasketItem>();
           var newBasketItems =  customerBasketItems.Where(basketItem => basketItem.ProductId != itemId).Select(basketItem => basketItem).ToList();
           _distributedCache.SetString(customerId, JsonConvert.SerializeObject(newBasketItems));
-            _notificationHubContext.Clients.All.SendAsync("sendToAll", "Emmanuel", newBasketItems.Count().ToString());
+            _notificationHubContext.Clients.Group(customerId).SendToAll("BasketChanged", newBasketItems.Count().ToString());
             return true;
         }
 

@@ -25,21 +25,16 @@ namespace ShoppingCartApiGateWay
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-   //         services
-   //.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-   //.AddJwtBearer("TestKey", options =>
-   //{
-   //    options.Authority = Configuration["Jwt:Issuer"];
-   //    options.TokenValidationParameters = new TokenValidationParameters
-   //    {
-   //        ValidateIssuer = true,
-   //        ValidIssuer = Configuration["Jwt:Issuer"],
-   //        ValidateAudience = true,
-   //        ValidAudience = Configuration["Jwt:aud"],
-   //        ValidateLifetime = true
-   //    };
-   //});
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                    .WithOrigins("http://localhost:8100")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    );
+            });
             services.AddMvc();
         }
 
@@ -50,12 +45,7 @@ namespace ShoppingCartApiGateWay
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(builder =>
-            {
-
-                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials().Build();
-
-            });
+            app.UseCors("CorsPolicy");
             app.UseMvc();
         }
     }
