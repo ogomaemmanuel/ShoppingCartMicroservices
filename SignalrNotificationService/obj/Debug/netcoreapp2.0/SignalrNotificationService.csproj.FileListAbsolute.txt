@@ -1,0 +1,8 @@
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\bin\Debug\netcoreapp2.0\SignalrNotificationService.deps.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\bin\Debug\netcoreapp2.0\SignalrNotificationService.runtimeconfig.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\bin\Debug\netcoreapp2.0\SignalrNotificationService.runtimeconfig.dev.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\bin\Debug\netcoreapp2.0\SignalrNotificationService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\obj\Debug\netcoreapp2.0\SignalrNotificationService.csprojAssemblyReference.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\obj\Debug\netcoreapp2.0\SignalrNotificationService.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\obj\Debug\netcoreapp2.0\SignalrNotificationService.AssemblyInfoInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\obj\Debug\netcoreapp2.0\SignalrNotificationService.AssemblyInfo.cs

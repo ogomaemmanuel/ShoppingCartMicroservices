@@ -13268,11 +13268,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\ShoppingCartApiGateWay\\ShoppingCartApiGateWay.csproj",
+      "projectUniqueName": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartMicroservices\\ShoppingCartApiGateWay\\ShoppingCartApiGateWay.csproj",
       "projectName": "ShoppingCartApiGateWay",
-      "projectPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\ShoppingCartApiGateWay\\ShoppingCartApiGateWay.csproj",
+      "projectPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartMicroservices\\ShoppingCartApiGateWay\\ShoppingCartApiGateWay.csproj",
       "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\ShoppingCartApiGateWay\\obj\\",
+      "outputPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartMicroservices\\ShoppingCartApiGateWay\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

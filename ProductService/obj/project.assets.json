@@ -13079,11 +13079,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\ProductService\\ProductService.csproj",
+      "projectUniqueName": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartMicroservices\\ProductService\\ProductService.csproj",
       "projectName": "ProductService",
-      "projectPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\ProductService\\ProductService.csproj",
+      "projectPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartMicroservices\\ProductService\\ProductService.csproj",
       "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\ProductService\\obj\\",
+      "outputPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartMicroservices\\ProductService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

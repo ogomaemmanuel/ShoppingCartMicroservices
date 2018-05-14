@@ -13426,11 +13426,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\BasketService\\BasketService.csproj",
+      "projectUniqueName": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartMicroservices\\BasketService\\BasketService.csproj",
       "projectName": "BasketService",
-      "projectPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\BasketService\\BasketService.csproj",
+      "projectPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartMicroservices\\BasketService\\BasketService.csproj",
       "packagesPath": "C:\\Users\\Emmanuel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartVersion2\\BasketService\\obj\\",
+      "outputPath": "C:\\Users\\Emmanuel\\source\\repos\\ShoppingCartMicroservices\\BasketService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

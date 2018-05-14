@@ -9,7 +9,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\BasketService:/app
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService:/app
       - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
       - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
@@ -28,7 +28,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ManufacturerService:/app
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ManufacturerService:/app
       - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
       - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
@@ -48,7 +48,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\OrderService:/app
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\OrderService:/app
       - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
       - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
@@ -68,7 +68,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentMethodService:/app
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentMethodService:/app
       - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
       - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
@@ -88,7 +88,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentService:/app
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService:/app
       - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
       - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
@@ -108,7 +108,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService:/app
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService:/app
       - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
       - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
@@ -128,7 +128,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductService:/app
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductService:/app
       - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
       - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
@@ -148,7 +148,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShipmentMethodService:/app
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService:/app
       - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
       - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
@@ -168,7 +168,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
     volumes:
-      - C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShoppingCartApiGateWay:/app
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShoppingCartApiGateWay:/app
       - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
       - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
       - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
@@ -176,6 +176,26 @@ services:
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
       com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/ShoppingCartApiGateWay.dll"
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
+
+
+  signalrnotificationservice:
+    image: signalrnotificationservice:dev
+    build:
+      target: base
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+    volumes:
+      - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService:/app
+      - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+      - C:\Users\Emmanuel\.nuget\packages\:/root/.nuget/packages:ro
+      - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/SignalrNotificationService.dll"
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
 

@@ -87,6 +87,12 @@ services:
       - "5672:5672"
       - "15672:15672"
 
+  signalrnotificationservice:
+    image: ${DOCKER_REGISTRY}signalrnotificationservice
+    build:
+      context: .
+      dockerfile: SignalrNotificationService/Dockerfile
+
 volumes:
   basketdata:
   messegingdata:
@@ -97,3 +103,4 @@ volumes:
 
 
  
+
