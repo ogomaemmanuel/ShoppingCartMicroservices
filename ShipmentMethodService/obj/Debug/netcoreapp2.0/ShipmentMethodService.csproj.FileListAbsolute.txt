@@ -9,3 +9,13 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShipmentMethodService\obj\De
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.pdb
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.csprojAssemblyReference.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\bin\Debug\netcoreapp2.0\ShipmentMethodService.deps.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\bin\Debug\netcoreapp2.0\ShipmentMethodService.runtimeconfig.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\bin\Debug\netcoreapp2.0\ShipmentMethodService.runtimeconfig.dev.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\bin\Debug\netcoreapp2.0\ShipmentMethodService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\bin\Debug\netcoreapp2.0\ShipmentMethodService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.AssemblyInfoInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.AssemblyInfo.cs
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.pdb

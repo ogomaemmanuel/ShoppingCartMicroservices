@@ -8,5 +8,6 @@ namespace SignalrNotificationService.Hubs
     public interface INotificationHub
     {
          Task SendToAll(string messageType, object message);
+         
     }
 }

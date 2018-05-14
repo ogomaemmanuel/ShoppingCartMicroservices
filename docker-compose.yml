@@ -88,7 +88,7 @@ services:
       - "15672:15672"
 
   signalrnotificationservice:
-    image: ${DOCKER_REGISTRY}signalrnotificationservice
+    image: mudho/signalrnotificationservice
     build:
       context: .
       dockerfile: SignalrNotificationService/Dockerfile

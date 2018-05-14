@@ -11,17 +11,17 @@ using System.Threading.Tasks;
 
 namespace BasketService.Services
 {
-    public class OrderPlacedSubscriber : IOrderPlacedSubsriber
+
+    public class BasketChangedHandler : IBasketChangedHandler
     {
         private readonly IRepository<BasketItem> _basketManager;
-        public OrderPlacedSubscriber(IRepository<BasketItem> basketManager)
+        public BasketChangedHandler(IRepository<BasketItem> basketManager)
         {
             _basketManager = basketManager;
         }
 
         public void Handle()
         {
-
             ConnectionFactory connectionFactory = new ConnectionFactory();
             connectionFactory.Uri = new Uri("amqp://guest:guest@rabbitmq:5672");
             connectionFactory.UserName = "guest";

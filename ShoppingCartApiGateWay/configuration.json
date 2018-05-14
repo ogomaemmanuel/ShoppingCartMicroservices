@@ -28,22 +28,9 @@
       ],
       "UpstreamPathTemplate": "/api/Basket/{customerId?}",
       "UpstreamHttpMethod": [ "Options", "Get" ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "TestKey",
-      //  "AllowedScopes": []
-      //}
+
     },
-    //{
-    //  "DownstreamPathTemplate": "/NotificationHub",
-    //  "UpstreamPathTemplate": "/NotificationHub",
-    //  "DownstreamScheme": "ws",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      "Host": "basketservice",
-    //      "Port": 80
-    //    }
-    //  ]
-    //},
+
     {
       "DownstreamPathTemplate": "/NotificationHub/negotiate",
       "UpstreamPathTemplate": "/NotificationHub/negotiate",
@@ -54,7 +41,7 @@
           "Port": 80
         }
       ],
-      "UpstreamHttpMethod": ["Options", "Post" ]
+      "UpstreamHttpMethod": [ "Options", "Post" ]
     },
 
     {
@@ -81,10 +68,6 @@
       ],
       "UpstreamPathTemplate": "/api/Basket/{customerId?}/{itemId}",
       "UpstreamHttpMethod": [ "Options", "Put", "Delete" ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "TestKey",
-      //  "AllowedScopes": []
-      //}
     },
 
 
@@ -127,10 +110,6 @@
       ],
       "UpstreamPathTemplate": "/api/orders",
       "UpstreamHttpMethod": [ "Options", "Post", "Get" ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "TestKey",
-      //  "AllowedScopes": []
-      //}
     },
 
     {
@@ -144,10 +123,6 @@
       ],
       "UpstreamPathTemplate": "/api/orders/{id}",
       "UpstreamHttpMethod": [ "Options", "Get", "Delete", "Put" ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "TestKey",
-      //  "AllowedScopes": []
-      //}
     },
     {
       "DownstreamPathTemplate": "/api/orders/customer/{id}",
@@ -160,10 +135,6 @@
       ],
       "UpstreamPathTemplate": "/api/orders/customer/{id}",
       "UpstreamHttpMethod": [ "Get" ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "TestKey",
-      //  "AllowedScopes": []
-      //}
     },
 
     {
@@ -177,10 +148,6 @@
       ],
       "UpstreamPathTemplate": "/api/orders/order-items/{id}",
       "UpstreamHttpMethod": [ "Options", "Get" ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "TestKey",
-      //  "AllowedScopes": []
-      //}
     },
 
     //payment methods reroute config
@@ -196,10 +163,6 @@
       ],
       "UpstreamPathTemplate": "/api/PaymentMethods",
       "UpstreamHttpMethod": [ "Options", "Get", "Post" ],
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "TestKey",
-      //  "AllowedScopes": []
-      //}
       "Key": "paymentMethods"
     },
 
@@ -353,10 +316,32 @@
       ],
       "UpstreamPathTemplate": "/api/MpesaPayment",
       "UpstreamHttpMethod": [ "Options", "Post" ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "TestKey",
-      //  "AllowedScopes": []
-      //}
+    },
+
+    {
+      "DownstreamPathTemplate": "/Signalr/NotificationHub/negotiate",
+      "UpstreamPathTemplate": "/Signalr/NotificationHub/negotiate",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "signalrnotificationservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamHttpMethod": [ "Options", "Post" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/Signalr/NotificationHub",
+      "UpstreamPathTemplate": "/Signalr/NotificationHub",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "signalrnotificationservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamHttpMethod": [ "Options", "Get", "Post" ]
     }
 
 

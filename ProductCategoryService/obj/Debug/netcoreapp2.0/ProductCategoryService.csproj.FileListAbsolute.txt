@@ -9,3 +9,14 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\D
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.pdb
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.csprojAssemblyReference.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\bin\Debug\netcoreapp2.0\ProductCategoryService.deps.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\bin\Debug\netcoreapp2.0\ProductCategoryService.runtimeconfig.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\bin\Debug\netcoreapp2.0\ProductCategoryService.runtimeconfig.dev.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\bin\Debug\netcoreapp2.0\ProductCategoryService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\bin\Debug\netcoreapp2.0\ProductCategoryService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.csprojAssemblyReference.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.AssemblyInfoInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.AssemblyInfo.cs
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService\obj\Debug\netcoreapp2.0\ProductCategoryService.pdb

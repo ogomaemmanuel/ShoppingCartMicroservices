@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace BasketService.Services
 {
-    public interface IOrderPlacedSubsriber
-    {
-        void Handle();
+    public interface IOrderPlacedSubsriber:IntegrationEventHandler
+    { 
     }
 }

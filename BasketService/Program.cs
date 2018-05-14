@@ -23,7 +23,7 @@ namespace BasketService
                 try
                 {
                     // Requires using MvcMovie.Models;
-                   var orderPlacedSubsriber= services.GetRequiredService<IOrderPlacedSubsriber>();                    
+                   var orderPlacedSubsriber= services.GetRequiredService<IBasketChangedHandler>();                    
                    orderPlacedSubsriber.Handle();
                     
                 }

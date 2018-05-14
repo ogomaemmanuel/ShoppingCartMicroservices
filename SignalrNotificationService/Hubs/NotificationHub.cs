@@ -28,5 +28,9 @@ namespace SignalrNotificationService.Hubs
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, userId);
         }
+        public void BasketChangedMessage(string customerId, string message) {
+            Clients.Group(customerId).SendToAll("BasketChanged", message);
+        }
+
     }
 }

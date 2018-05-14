@@ -20,3 +20,14 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentService\obj\Debug\net
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentService\obj\Debug\netcoreapp2.0\PaymentService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentService\obj\Debug\netcoreapp2.0\PaymentService.pdb
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\PaymentService\obj\Debug\netcoreapp2.0\PaymentService.csprojAssemblyReference.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\bin\Debug\netcoreapp2.0\PaymentService.deps.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\bin\Debug\netcoreapp2.0\PaymentService.runtimeconfig.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\bin\Debug\netcoreapp2.0\PaymentService.runtimeconfig.dev.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\bin\Debug\netcoreapp2.0\PaymentService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\bin\Debug\netcoreapp2.0\PaymentService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\obj\Debug\netcoreapp2.0\PaymentService.csprojAssemblyReference.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\obj\Debug\netcoreapp2.0\PaymentService.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\obj\Debug\netcoreapp2.0\PaymentService.AssemblyInfoInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\obj\Debug\netcoreapp2.0\PaymentService.AssemblyInfo.cs
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\obj\Debug\netcoreapp2.0\PaymentService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService\obj\Debug\netcoreapp2.0\PaymentService.pdb

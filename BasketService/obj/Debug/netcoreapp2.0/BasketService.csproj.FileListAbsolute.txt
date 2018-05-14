@@ -9,3 +9,14 @@ C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\BasketService\bin\Debug\netc
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\BasketService\obj\Debug\netcoreapp2.0\BasketService.csprojAssemblyReference.cache
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\BasketService\obj\Debug\netcoreapp2.0\BasketService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\BasketService\obj\Debug\netcoreapp2.0\BasketService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\obj\Debug\netcoreapp2.0\BasketService.csprojAssemblyReference.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\obj\Debug\netcoreapp2.0\BasketService.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\obj\Debug\netcoreapp2.0\BasketService.AssemblyInfoInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\obj\Debug\netcoreapp2.0\BasketService.AssemblyInfo.cs
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\obj\Debug\netcoreapp2.0\BasketService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\obj\Debug\netcoreapp2.0\BasketService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\bin\Debug\netcoreapp2.0\BasketService.deps.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\bin\Debug\netcoreapp2.0\BasketService.runtimeconfig.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\bin\Debug\netcoreapp2.0\BasketService.runtimeconfig.dev.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\bin\Debug\netcoreapp2.0\BasketService.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService\bin\Debug\netcoreapp2.0\BasketService.pdb

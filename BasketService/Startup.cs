@@ -37,13 +37,15 @@ namespace BasketService
             {
                 options.Configuration = Configuration["Redis:Url"];
             });
-            services.AddSingleton<IOrderPlacedSubsriber,OrderPlacedSubscriber>();
+            services.AddSingleton<IBasketChangedHandler, BasketChangedHandler>();
+            services.AddTransient<IBasketChangedNotificationSender, BasketChangedNotificationSender>();
+            services.AddSingleton<ISignalRClientProvider, SignalRClientProvider>();
             services.AddSignalR();
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
                     builder => builder
-                    .WithOrigins("http://localhost:8100")
+                    .WithOrigins("*")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials()
@@ -77,13 +79,7 @@ namespace BasketService
                 app.UseDeveloperExceptionPage();
             }
             
-            app.UseSignalR(routes =>
-
-           {
-
-               routes.MapHub<NotificationHub>("/NotificationHub");
-
-           });
+           
             app.UseCors("CorsPolicy");
             app.UseAuthentication();
             app.UseMvc();
