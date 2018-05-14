@@ -13,7 +13,7 @@ namespace BasketService.Services
     {
         private readonly IDistributedCache _distributedCache;
         private readonly IBasketChangedNotificationSender _basketChangedNotificationSender;
-        public BasketManager(IDistributedCache distributedCache, BasketChangedNotificationSender basketChangedNotificationSender) {
+        public BasketManager(IDistributedCache distributedCache, IBasketChangedNotificationSender basketChangedNotificationSender) {
             _distributedCache = distributedCache;
             _basketChangedNotificationSender = basketChangedNotificationSender;
         }
@@ -78,8 +78,8 @@ namespace BasketService.Services
             var customerBasketItems = this.GetByCustomerId(customerId) ?? new List<BasketItem>();
             customerBasketItems.Add(t);
             _distributedCache.SetString(customerId, JsonConvert.SerializeObject(customerBasketItems));
+            _basketChangedNotificationSender.PublishCustomerBasketTotal(customerId, customerBasketItems.Count().ToString());
             return true;
-
         }
        
     }

@@ -8,3 +8,4 @@ C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationServ
 C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\bin\Debug\netcoreapp2.0\SignalrNotificationService.pdb
 C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\obj\Debug\netcoreapp2.0\SignalrNotificationService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\obj\Debug\netcoreapp2.0\SignalrNotificationService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService\obj\Debug\netcoreapp2.0\SignalrNotificationService.csprojAssemblyReference.cache

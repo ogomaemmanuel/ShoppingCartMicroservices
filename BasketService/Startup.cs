@@ -45,7 +45,7 @@ namespace BasketService
             {
                 options.AddPolicy("CorsPolicy",
                     builder => builder
-                    .WithOrigins("*")
+                    .WithOrigins("http://localhost:8100")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials()

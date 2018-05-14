@@ -47,6 +47,7 @@ namespace SignalrNotificationService
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("CorsPolicy");
             app.UseSignalR(routes =>
             {
                 routes.MapHub<NotificationHub>("/Signalr/NotificationHub");

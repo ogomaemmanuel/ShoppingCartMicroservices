@@ -1,1 +1,2 @@
 C:\Users\Emmanuel\source\repos\ShoppingCartVersion2\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

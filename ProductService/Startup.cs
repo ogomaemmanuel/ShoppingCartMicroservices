@@ -65,6 +65,16 @@ namespace ProductService
              ValidateLifetime = true
          };
      });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                    .WithOrigins("http://localhost:8100")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    );
+            });
             services.AddSwaggerGen(c =>
 
             {
@@ -96,12 +106,7 @@ namespace ProductService
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder =>
-            {
-
-                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().DisallowCredentials().Build();
-
-            });
+            app.UseCors("CorsPolicy");
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

@@ -49,7 +49,7 @@ namespace SignalrNotificationService.Services
                 NotificationMessage notificationMessage = JsonConvert.DeserializeObject<NotificationMessage>(message);
                 if (notificationMessage.GroupId.ToLower() != "all")
                 {
-                    this._hubContext.Clients.Group(notificationMessage.GroupId).SendToAll(messageType: notificationMessage.MessageType, message: notificationMessage.MessageType);
+                    this._hubContext.Clients.Group(notificationMessage.GroupId).SendToAll(messageType: notificationMessage.MessageType, message: notificationMessage.Message);
                 }
                 else {
                     this._hubContext.Clients.All.SendToAll(messageType: notificationMessage.MessageType, message: notificationMessage.MessageType);
