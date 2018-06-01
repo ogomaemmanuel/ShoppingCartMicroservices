@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BasketService.Services
 {
-    public class BasketChangedNotificationSender: IBasketChangedNotificationSender
+    public class BasketChangedNotificationSender : IBasketChangedNotificationSender
     {
 
         public void PublishCustomerBasketTotal(string groupId, string basketTotal)
@@ -30,9 +30,16 @@ namespace BasketService.Services
                      autoDelete: false,
                      arguments: null);
 
-                channel.QueueBind("notificationhubqueue", "notificationhub","");
-               
-                var message = JsonConvert.SerializeObject(new NotificationMessage {GroupId= groupId,Message= basketTotal, MessageType="BasketChanged" });
+                channel.QueueBind("notificationhubqueue", "notificationhub", "");
+
+                var message =
+                    JsonConvert.SerializeObject(
+                        new NotificationMessage
+                        {
+                            GroupId = groupId,
+                            Message = basketTotal,
+                            MessageType = "BasketChanged"
+                        });
                 var body = Encoding.UTF8.GetBytes(message);
                 var properties = channel.CreateBasicProperties();
                 properties.Persistent = true;
@@ -45,7 +52,8 @@ namespace BasketService.Services
         }
     }
 
-    public class NotificationMessage {
+    public class NotificationMessage
+    {
         public string GroupId { get; set; }
         public string Message { get; set; }
         public string MessageType { get; set; }

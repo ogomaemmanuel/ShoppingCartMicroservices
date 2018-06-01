@@ -19,3 +19,4 @@ C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\OrderService\obj\Debug\
 C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\OrderService\obj\Debug\netcoreapp2.0\OrderService.AssemblyInfo.cs
 C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\OrderService\obj\Debug\netcoreapp2.0\OrderService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\OrderService\obj\Debug\netcoreapp2.0\OrderService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\OrderService\obj\Debug\netcoreapp2.0\OrderService.csprojAssemblyReference.cache

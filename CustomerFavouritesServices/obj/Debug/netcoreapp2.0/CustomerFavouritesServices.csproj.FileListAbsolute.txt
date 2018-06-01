@@ -1,0 +1,11 @@
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\bin\Debug\netcoreapp2.0\CustomerFavouritesServices.deps.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\bin\Debug\netcoreapp2.0\CustomerFavouritesServices.runtimeconfig.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\bin\Debug\netcoreapp2.0\CustomerFavouritesServices.runtimeconfig.dev.json
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\bin\Debug\netcoreapp2.0\CustomerFavouritesServices.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\bin\Debug\netcoreapp2.0\CustomerFavouritesServices.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\obj\Debug\netcoreapp2.0\CustomerFavouritesServices.csprojAssemblyReference.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\obj\Debug\netcoreapp2.0\CustomerFavouritesServices.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\obj\Debug\netcoreapp2.0\CustomerFavouritesServices.AssemblyInfoInputs.cache
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\obj\Debug\netcoreapp2.0\CustomerFavouritesServices.AssemblyInfo.cs
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\obj\Debug\netcoreapp2.0\CustomerFavouritesServices.dll
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices\obj\Debug\netcoreapp2.0\CustomerFavouritesServices.pdb

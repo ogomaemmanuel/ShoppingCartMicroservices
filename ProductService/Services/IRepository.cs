@@ -13,5 +13,6 @@ namespace ProductService.Services
         T GetById(Guid id);
         bool Remove(Guid id);
         PagedResult<T> GetPaged(PagingParams pagingParams);
+        bool Update(T product);
     }
 }

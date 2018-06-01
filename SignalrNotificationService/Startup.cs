@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SignalrNotificationService.Hubs;
 using SignalrNotificationService.Services;
+using SignalrNotificationService.SystemIntegration;
 
 namespace SignalrNotificationService
 {
@@ -27,6 +28,8 @@ namespace SignalrNotificationService
         {
             services.AddSingleton<IBroadCastNotificationReceiver, BroadCastNotificationReceiver>();
             services.AddSignalR().AddRedis(Configuration["Redis:Url"]);
+            services.AddTransient<IUserLoggedInRedisPublisher, UserLoggedInRedisPublisher >();
+            services.AddSingleton<IProductUpdateSubscriber, ProductUpdateSubscriber > ();
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",

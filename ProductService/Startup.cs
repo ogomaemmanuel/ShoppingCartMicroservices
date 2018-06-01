@@ -14,6 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 using ProductService.Conventions;
 using ProductService.Models;
 using ProductService.Services;
+using ProductService.SystemIntegration;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace ProductService
@@ -31,6 +32,7 @@ namespace ProductService
         public void ConfigureServices(IServiceCollection services)
 
         {
+            services.AddScoped<IProductUpdatedEventPublisher, ProductUpdatedEventPublisher>();
             services.AddDbContext<ShoppingCartDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("ShoppingCartDbConnectionString"),
             sqlServerOptionsAction: sqlOptions =>

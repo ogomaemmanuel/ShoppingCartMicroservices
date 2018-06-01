@@ -352,7 +352,8 @@
         "paymentMethods",
         "shipmentMethods"
       ],
-      "UpstreamPathTemplate": "/CheckoutOption"
+      "UpstreamPathTemplate": "/CheckoutOption",
+      "UpstreamHttpMethod": [ "Options", "Get", "Post" ]
     }
   ],
   "GlobalConfiguration": {

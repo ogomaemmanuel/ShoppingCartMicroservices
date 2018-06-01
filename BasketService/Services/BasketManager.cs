@@ -63,10 +63,16 @@ namespace BasketService.Services
             }
                 return new List<BasketItem>();
         }
-    
+
+        public int Count(string customerId)
+        {
+            var basketItemsCount = this.GetByCustomerId(customerId).Count();
+            return basketItemsCount;
+        }
+
         public bool RemoveSingleBasketItem(Guid itemId, string customerId)
         {
-           var customerBasketItems = this.GetByCustomerId(customerId) ?? new List<BasketItem>();
+          var customerBasketItems = this.GetByCustomerId(customerId) ?? new List<BasketItem>();
           var newBasketItems =  customerBasketItems.Where(basketItem => basketItem.ProductId != itemId).Select(basketItem => basketItem).ToList();
           _distributedCache.SetString(customerId, JsonConvert.SerializeObject(newBasketItems));
           _basketChangedNotificationSender.PublishCustomerBasketTotal(customerId, newBasketItems.Count().ToString());

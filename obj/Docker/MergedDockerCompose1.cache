@@ -35,6 +35,36 @@ services:
     - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
     - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
     - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  customerfavourites.data:
+    image: redis
+    volumes:
+    - customerfavouritesdata:/data:rw
+  customerfavouritesservices:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: CustomerFavouritesServices/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+      RedisHost: customerfavourites.data
+    image: mudho/customerfavouritesservices:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/CustomerFavouritesServices.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
   manufacturerservice:
     build:
       context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
@@ -286,4 +316,5 @@ services:
 version: '3.4'
 volumes:
   basketdata: {}
+  customerfavouritesdata: {}
   messegingdata: {}

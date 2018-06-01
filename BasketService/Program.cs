@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BasketService.Services;
+using BasketService.SystemIntegration;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -17,15 +18,19 @@ namespace BasketService
         public static void Main(string[] args)
         {
             var host = BuildWebHost(args);
+            
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
                 try
                 {
-                    // Requires using MvcMovie.Models;
-                   var orderPlacedSubsriber= services.GetRequiredService<IBasketChangedHandler>();                    
-                   orderPlacedSubsriber.Handle();
-                    
+                   
+                    var orderPlacedSubsriber = services.GetRequiredService<IBasketChangedHandler>();
+                    orderPlacedSubsriber.Handle();
+
+                    //TODO: tob worked on later, not working as expected
+                    //var UserLoggedInSubscriber = services.GetRequiredService<UserLoggedInSubscriber>();
+                    //UserLoggedInSubscriber.Subscribe();
                 }
                 catch (Exception ex)
                 {
@@ -41,5 +46,10 @@ namespace BasketService
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()                
                 .Build();
+
+
+        
     }
+
+  
 }

@@ -1,0 +1,346 @@
+services:
+  basket.data:
+    image: redis
+    ports:
+    - published: 6379
+      target: 6379
+    volumes:
+    - basketdata:/data:rw
+  basketservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: BasketService/Dockerfile
+      target: base
+    depends_on:
+    - basket.data
+    - rabbitmq
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/basketservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/BasketService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 9001
+      target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\BasketService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  customerfavourites.data:
+    image: redis
+    volumes:
+    - customerfavouritesdata:/data:rw
+  customerfavouritesservices:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: CustomerFavouritesServices/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+      RedisHost: customerfavourites.data
+    image: mudho/customerfavouritesservices:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/CustomerFavouritesServices.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\CustomerFavouritesServices:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  manufacturerservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ManufacturerService/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/manufacturerservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/ManufacturerService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 9002
+      target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ManufacturerService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  nosql.data:
+    image: mongo
+  orderservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: OrderService/Dockerfile
+      target: base
+    depends_on:
+    - rabbitmq
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/orderservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/OrderService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 9003
+      target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\OrderService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  orderservicedb:
+    environment:
+      MYSQL_DATABASE: CytonDb
+      MYSQL_PASSWORD: ogoma@123
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: emmanuel
+    image: mysql:5.7
+    restart: always
+    volumes:
+    - orderservicedata:/var/lib/mysql:rw
+  paymentmethodservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: PaymentMethodService/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/paymentmethodservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/PaymentMethodService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 9004
+      target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentMethodService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  paymentmethodservicedb:
+    environment:
+      MYSQL_DATABASE: CytonDb
+      MYSQL_PASSWORD: ogoma@123
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: emmanuel
+    image: mysql:5.7
+    restart: always
+    volumes:
+    - orderservicedata:/var/lib/mysql:rw
+  paymentservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: PaymentService/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/paymentservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/PaymentService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 9009
+      target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\PaymentService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  productcategoryservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ProductCategoryService/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/productcategoryservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/ProductCategoryService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 9005
+      target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductCategoryService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  productservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ProductService/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/productservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/ProductService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 9006
+      target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ProductService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  rabbitmq:
+    container_name: rabbit
+    hostname: my-rabbit
+    image: rabbitmq:3-management
+    ports:
+    - published: 5672
+      target: 5672
+    - published: 15672
+      target: 15672
+    volumes:
+    - messegingdata:/var/lib/rabbitmq:rw
+  shipmentmethodservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ShipmentMethodService/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/shipmentmethodservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/ShipmentMethodService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 9007
+      target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  shoppingcartapigateway:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ShoppingCartApiGateWay/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/shoppingcartapigateway:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/ShoppingCartApiGateWay.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 9008
+      target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShoppingCartApiGateWay:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+  signalrnotificationservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: SignalrNotificationService/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: mudho/signalrnotificationservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.0/SignalrNotificationService.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    volumes:
+    - C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\SignalrNotificationService:/app:rw
+    - C:\Users\Emmanuel\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Emmanuel\.nuget\packages:/root/.nuget/packages:ro
+version: '3.4'
+volumes:
+  basketdata: {}
+  customerfavouritesdata: {}
+  messegingdata: {}
+  orderservicedata: {}
+  paymentMethodServicedata: {}
+  paymentServicedata: {}
+  productCategoryServicedata: {}
+  productservicedata: {}
+  shipmentmethodservicedata: {}

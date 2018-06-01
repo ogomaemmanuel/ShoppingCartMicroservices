@@ -19,6 +19,11 @@ namespace PaymentService.Controllers
         {
             this.lipaNaMpesaManager = lipaNaMpesaManager;
         }
+        /// <summary>
+        /// Receives mpesa payments that are made using Stk push
+        /// </summary>
+        /// <param name="linaMpesaOnlineTransactionResponse"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult ReceivePayment(LinaMpesaOnlineTransactionResponse
             linaMpesaOnlineTransactionResponse) {

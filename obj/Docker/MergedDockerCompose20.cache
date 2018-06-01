@@ -1,0 +1,200 @@
+services:
+  basket.data:
+    image: redis
+    ports:
+    - published: 6379
+      target: 6379
+    volumes:
+    - basketdata:/data:rw
+  basketservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: BasketService/Dockerfile
+    depends_on:
+    - basket.data
+    - rabbitmq
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/basketservice
+    ports:
+    - published: 9001
+      target: 80
+  customerfavourites.data:
+    image: redis
+    volumes:
+    - customerfavouritesdata:/data:rw
+  customerfavouritesservices:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: CustomerFavouritesServices/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      RedisHost: customerfavourites.data
+    image: mudho/customerfavouritesservices
+    ports:
+    - target: 80
+  manufacturerservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ManufacturerService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/manufacturerservice
+    ports:
+    - published: 9002
+      target: 80
+  nosql.data:
+    image: mongo
+  orderservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: OrderService/Dockerfile
+    depends_on:
+    - rabbitmq
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/orderservice
+    ports:
+    - published: 9003
+      target: 80
+  orderservicedb:
+    environment:
+      MYSQL_DATABASE: CytonDb
+      MYSQL_PASSWORD: ogoma@123
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: emmanuel
+    image: mysql:5.7
+    restart: always
+    volumes:
+    - orderservicedata:/var/lib/mysql:rw
+  paymentmethodservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: PaymentMethodService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/paymentmethodservice
+    ports:
+    - published: 9004
+      target: 80
+  paymentmethodservicedb:
+    environment:
+      MYSQL_DATABASE: CytonDb
+      MYSQL_PASSWORD: ogoma@123
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: emmanuel
+    image: mysql:5.7
+    restart: always
+    volumes:
+    - paymentmethodservicedata:/var/lib/mysql:rw
+  paymentservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: PaymentService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/paymentservice
+    ports:
+    - published: 9009
+      target: 80
+  paymentservicedb:
+    environment:
+      MYSQL_DATABASE: CytonDb
+      MYSQL_PASSWORD: ogoma@123
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: emmanuel
+    image: mysql:5.7
+    restart: always
+    volumes:
+    - paymentservicedata:/var/lib/mysql:rw
+  productCategoryServicedb:
+    environment:
+      MYSQL_DATABASE: CytonDb
+      MYSQL_PASSWORD: ogoma@123
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: emmanuel
+    image: mysql:5.7
+    restart: always
+    volumes:
+    - productCategoryServicedata:/var/lib/mysql:rw
+  productcategoryservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ProductCategoryService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/productcategoryservice
+    ports:
+    - published: 9005
+      target: 80
+  productservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ProductService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/productservice
+    ports:
+    - published: 9006
+      target: 80
+  productservicedb:
+    environment:
+      MYSQL_DATABASE: CytonDb
+      MYSQL_PASSWORD: ogoma@123
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: emmanuel
+    image: mysql:5.7
+    restart: always
+    volumes:
+    - productservicedata:/var/lib/mysql:rw
+  rabbitmq:
+    container_name: rabbit
+    hostname: my-rabbit
+    image: rabbitmq:3-management
+    ports:
+    - published: 5672
+      target: 5672
+    - published: 15672
+      target: 15672
+    volumes:
+    - messegingdata:/var/lib/rabbitmq:rw
+  shipmentmethodservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ShipmentMethodService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/shipmentmethodservice
+    ports:
+    - published: 9007
+      target: 80
+  shoppingcartapigateway:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: ShoppingCartApiGateWay/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/shoppingcartapigateway
+    ports:
+    - published: 9008
+      target: 80
+  signalrnotificationservice:
+    build:
+      context: C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices
+      dockerfile: SignalrNotificationService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: mudho/signalrnotificationservice
+    ports:
+    - target: 80
+version: '3.4'
+volumes:
+  basketdata: {}
+  customerfavouritesdata: {}
+  messegingdata: {}
+  orderservicedata: {}
+  paymentmethodservicedata: {}
+  paymentservicedata: {}
+  productCategoryServicedata: {}
+  productservicedata: {}
+  shipmentmethodservicedata: {}

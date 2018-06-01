@@ -19,3 +19,4 @@ C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\o
 C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.AssemblyInfo.cs
 C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.dll
 C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.pdb
+C:\Users\Emmanuel\source\repos\ShoppingCartMicroservices\ShipmentMethodService\obj\Debug\netcoreapp2.0\ShipmentMethodService.csprojAssemblyReference.cache

@@ -1,4 +1,5 @@
 ﻿using ProductService.Models;
+using ProductService.SystemIntegration;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,8 +11,11 @@ namespace ProductService.Services
     public class ProductsManager : IRepository<Product>
     {
         private readonly ShoppingCartDbContext _dbContext;
-        public ProductsManager(ShoppingCartDbContext dbContext)
+        private readonly IProductUpdatedEventPublisher _productUpdatedEventPublisher;
+        public ProductsManager(ShoppingCartDbContext dbContext,
+            IProductUpdatedEventPublisher productUpdatedEventPublisher)
         {
+            _productUpdatedEventPublisher = productUpdatedEventPublisher;
             _dbContext = dbContext;
         }
 
@@ -47,6 +51,7 @@ namespace ProductService.Services
             try
             {
                 _dbContext.SaveChanges();
+                _productUpdatedEventPublisher.Publish(product);
                 return true;
             }
             catch (Exception ex)
@@ -59,7 +64,14 @@ namespace ProductService.Services
         {
             PagedResult<Product> pagedProducts=
                 this._dbContext.Products.GetPaged<Product>(pagingParams.PageNumber, pagingParams.PageSize);
+           
             return pagedProducts;
+        }
+
+        public bool Update(Product product)
+        {
+           // PagedResult <Product> pagedProducts
+              return false;
         }
     }
 }

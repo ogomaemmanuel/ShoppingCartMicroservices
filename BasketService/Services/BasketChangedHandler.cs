@@ -28,15 +28,6 @@ namespace BasketService.Services
             connectionFactory.Password = "guest";
             connectionFactory.AutomaticRecoveryEnabled = true;
             connectionFactory.NetworkRecoveryInterval = TimeSpan.FromSeconds(10);
-
-            //ConnectionFactory connectionFactory = new ConnectionFactory();
-            //connectionFactory.Uri = new Uri("amqp://icufoydf:2M59Ck8mFVEkENoA0ArJv3a5fymlSDxW@spider.rmq.cloudamqp.com/icufoydf");
-            //connectionFactory.UserName = "icufoydf";
-            //connectionFactory.Password = "2M59Ck8mFVEkENoA0ArJv3a5fymlSDxW";
-            //connectionFactory.AutomaticRecoveryEnabled = true;
-            // connectionFactory.NetworkRecoveryInterval = TimeSpan.FromSeconds(10);
-
-
             IConnection connection = connectionFactory.CreateConnection();
             var channel = connection.CreateModel();
             channel.QueueDeclare(queue: "basketservice",
@@ -49,7 +40,6 @@ namespace BasketService.Services
             channel.QueueBind(queue: "basketservice",
                       exchange: "orders",
                       routingKey: "");
-            Debug.WriteLine(" [*] Waiting for orders placed BasketSevice");
             channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
             var consumer = new EventingBasicConsumer(channel);
             consumer.Received += (model, ea) =>

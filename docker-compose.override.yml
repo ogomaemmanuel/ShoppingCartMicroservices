@@ -81,3 +81,9 @@ services:
     ports:
       - "80"
 
+  customerfavouritesservices:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

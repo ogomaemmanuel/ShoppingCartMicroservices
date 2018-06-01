@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SignalrNotificationService.Services;
+using SignalrNotificationService.SystemIntegration;
 
 namespace SignalrNotificationService
 {
@@ -24,7 +25,8 @@ namespace SignalrNotificationService
                 {
                     var orderPlacedSubsriber = services.GetRequiredService<IBroadCastNotificationReceiver>();
                     orderPlacedSubsriber.Handle();
-
+                    var productUpdateSubscriber = services.GetRequiredService<IProductUpdateSubscriber>();
+                    productUpdateSubscriber.Subscribe();
                 }
                 catch (Exception ex)
                 {

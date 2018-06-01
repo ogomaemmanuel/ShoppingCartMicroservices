@@ -21,6 +21,7 @@ services:
     image: mudho/orderservice
     depends_on:      
       - rabbitmq
+      - orderservicedb
     build:
       context: .
       dockerfile: OrderService/Dockerfile
@@ -28,6 +29,8 @@ services:
 
   paymentmethodservice:
     image: mudho/paymentmethodservice
+    depends_on:
+      - paymentmethodservicedb
     build:
       context: .
       dockerfile: PaymentMethodService/Dockerfile
@@ -35,13 +38,17 @@ services:
 
   productcategoryservice:
     image: mudho/productcategoryservice
+    depends_on:
+      - productcategoryservicedb
     build:
       context: .
       dockerfile: ProductCategoryService/Dockerfile
 
 
   productservice:
-    image: mudho/productservice
+    image: mudho/productservice,
+    depends_on:
+      - productservicedb
     build:
       context: .
       dockerfile: ProductService/Dockerfile
@@ -49,12 +56,16 @@ services:
 
   shipmentmethodservice:
     image: mudho/shipmentmethodservice
+    depends_on:
+      - shipmentmethodservicedb
     build:
       context: .
       dockerfile: ShipmentMethodService/Dockerfile
 
   paymentservice:
-    image: mudho/paymentservice    
+    image: mudho/paymentservice 
+    depends_on:
+      - paymentservicedb
     build:
       context: .
       dockerfile: PaymentService/Dockerfile
@@ -76,6 +87,13 @@ services:
     image: redis   
     volumes:
       - basketdata:/data
+
+  customerfavourites.data:
+    image: redis   
+    volumes:
+      - customerfavouritesdata:/data
+    
+    
       
   rabbitmq:
     hostname: my-rabbit
@@ -93,9 +111,107 @@ services:
       context: .
       dockerfile: SignalrNotificationService/Dockerfile
 
+ 
+  customerfavouritesservices:
+    image: mudho/customerfavouritesservices
+    build:
+      context: .
+      dockerfile: CustomerFavouritesServices/Dockerfile
+    environment:
+      "RedisHost": "customerfavourites.data"
+
+  orderservicedb:
+     image: mysql:5.7
+     environment:
+       MYSQL_RANDOM_ROOT_PASSWORD: 1
+       MYSQL_DATABASE: CytonDb
+       MYSQL_USER: emmanuel
+       MYSQL_PASSWORD: ogoma@123
+     volumes:
+       - orderservicedata:/var/lib/mysql
+     restart: always
+
+  paymentmethodservicedb:
+     image: mysql:5.7
+     environment:
+       MYSQL_RANDOM_ROOT_PASSWORD: 1
+       MYSQL_DATABASE: CytonDb
+       MYSQL_USER: emmanuel
+       MYSQL_PASSWORD: ogoma@123
+     volumes:
+       - paymentmethodservicedata:/var/lib/mysql
+     restart: always
+
+  paymentservicedb:
+     image: mysql:5.7
+     environment:
+       MYSQL_RANDOM_ROOT_PASSWORD: 1
+       MYSQL_DATABASE: CytonDb
+       MYSQL_USER: emmanuel
+       MYSQL_PASSWORD: ogoma@123
+     volumes:
+       - paymentservicedata:/var/lib/mysql
+     restart: always
+  
+
+  productservicedb:
+     image: mysql:5.7
+     environment:
+       MYSQL_RANDOM_ROOT_PASSWORD: 1
+       MYSQL_DATABASE: CytonDb
+       MYSQL_USER: emmanuel
+       MYSQL_PASSWORD: ogoma@123
+     volumes:
+       - productservicedata:/var/lib/mysql
+     restart: always
+
+  productcategoryservicedb:
+     image: mysql:5.7
+     environment:
+       MYSQL_RANDOM_ROOT_PASSWORD: 1
+       MYSQL_DATABASE: CytonDb
+       MYSQL_USER: emmanuel
+       MYSQL_PASSWORD: ogoma@123
+     volumes:
+       - productcategoryservicedata:/var/lib/mysql
+     restart: always
+
+  shipmentmethodservicedb:
+     image: mysql:5.7
+     environment:
+       MYSQL_RANDOM_ROOT_PASSWORD: 1
+       MYSQL_DATABASE: CytonDb
+       MYSQL_USER: emmanuel
+       MYSQL_PASSWORD: ogoma@123
+     volumes:
+       - shipmentmethodservicedata:/var/lib/mysql
+     restart: always
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
 volumes:
   basketdata:
   messegingdata:
+  customerfavouritesdata:
+  orderservicedata:
+  paymentmethodservicedata:
+  paymentservicedata:
+  productservicedata:
+  productcategoryservicedata:
+  shipmentmethodservicedata:
+
+
     
 
 
@@ -103,4 +219,6 @@ volumes:
 
 
  
+
+
 

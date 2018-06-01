@@ -46,7 +46,17 @@ namespace PaymentMethodService
             {
                 options.Conventions.Add(new ComplexTypeConvention());
             });
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                    .WithOrigins("http://localhost:8100")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    );
+            });
+            services.AddMvc();
             services
      .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
      .AddJwtBearer(options =>
@@ -98,7 +108,7 @@ namespace PaymentMethodService
                 builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().Build();
 
             });
-
+            app.UseCors("CorsPolicy");
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using OrderService.Models;
 using RabbitMQ.Client;
-using RabbitMQ.Client.Framing.Impl;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderService.Services
+namespace SignalrNotificationService.SystemIntegration
 {
-    public class OrderPlacedHandler
+    public class UserLoggedInRedisPublisher : IUserLoggedInRedisPublisher
     {
+        
+        public UserLoggedInRedisPublisher()
+        {
 
-
-        public static void PublishOrderPlaced(CustomerOrder customerOrder) {
+        }
+        public  void Publish(UserLoggedInMessage userLoggedInMessage)
+        {
             ConnectionFactory connectionFactory = new ConnectionFactory();
             connectionFactory.Uri = new Uri("amqp://guest:guest@rabbitmq:5672");
             connectionFactory.UserName = "guest";
@@ -25,32 +27,32 @@ namespace OrderService.Services
             using (var connection = connectionFactory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.ExchangeDeclare(exchange: "orders", type: "fanout");
-                channel.QueueDeclare(queue: "basketservice",
+                channel.ExchangeDeclare(exchange: "customerloggin", type: "fanout");
+                channel.QueueDeclare(queue: "customerlogginqueue",
                      durable: true,
                      exclusive: false,
                      autoDelete: false,
                      arguments: null);
-                channel.QueueDeclare(queue: "paymentservice",
-                     durable: true,
-                     exclusive: false,
-                     autoDelete: false,
-                     arguments: null);
-                channel.QueueBind("basketservice", "orders", "");
-                channel.QueueBind("paymentservice", "orders","");
-                var message = JsonConvert.SerializeObject(customerOrder);
+                channel.QueueBind("customerlogginqueue", "customerloggin", "");
+                
+                var message = JsonConvert.SerializeObject(userLoggedInMessage);
                 var body = Encoding.UTF8.GetBytes(message);
                 var properties = channel.CreateBasicProperties();
                 properties.Persistent = true;
-
-
-                channel.BasicPublish(exchange: "orders",
+                channel.BasicPublish(exchange: "customerloggin",
                                      routingKey: "",
                                      basicProperties: null,
                                      body: body);
                 Debug.WriteLine(" [x] Sent {0}", message);
-            }
 
+
+            }
         }
     }
+}
+
+public class UserLoggedInMessage{
+    public string Channel { get; set; }
+    public string Message { get; set; }
+    public string UserId { get; set; }
 }

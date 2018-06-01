@@ -15,8 +15,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using StackExchange.Redis;
-
-
+using BasketService.SystemIntegration;
 
 namespace BasketService
 {
@@ -40,6 +39,8 @@ namespace BasketService
             services.AddSingleton<IBasketChangedHandler, BasketChangedHandler>();
             services.AddTransient<IBasketChangedNotificationSender, BasketChangedNotificationSender>();
             services.AddSingleton<ISignalRClientProvider, SignalRClientProvider>();
+            services.AddSingleton<UserLoggedInSubscriber>();
+            services.AddTransient< IRepository <BasketItem>, BasketManager > ();
             services.AddSignalR();
             services.AddCors(options =>
             {

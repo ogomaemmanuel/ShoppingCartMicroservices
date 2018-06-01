@@ -13,5 +13,6 @@ namespace BasketService.Services
         List<T> GetByCustomerId(string customerId);
         bool RemoveSingleBasketItem(Guid itemId, string customerId);
         bool UpdateBasketItem(T t, string customerId);
+        int Count(string id);
     }
 }
